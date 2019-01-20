@@ -3,7 +3,6 @@ set cursorline
 set nu
 filetype off
 syntax on
-color dracula
 
 set t_Co=256
 
@@ -16,6 +15,7 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
+Plugin 'dracula/vim'
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'vim-airline/vim-airline'
