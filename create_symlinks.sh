@@ -18,6 +18,18 @@ then
     mv ~/.tmux.conf ~/.tmux.conf.bak
 fi
 
+if [ -e ~/.zshrc ]
+then
+    echo "~/.zshrc already exists, moving to ~/.zshrc.bak"
+    mv ~/.zshrc ~/.zshrc.bak
+fi
+
+if [ -e ~/.oh-my-zsh ]
+then
+    sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
+fi
+
 ln -s ~/.dotfiles/vimrc ~/.vimrc
 ln -s ~/.dotfiles/vim ~/.vim
 ln -s ~/.dotfiles/tmux.conf ~/.tmux.conf
+ln -s ~/.dotfiles/zshrc ~/.zshrc
