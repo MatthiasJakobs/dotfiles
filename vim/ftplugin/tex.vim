@@ -11,5 +11,6 @@ setlocal autoindent
 setlocal colorcolumn=0
 setlocal shiftwidth=4
 setlocal tabstop=4
-setlocal wrap
+setlocal wrap linebreak nolist
 setlocal nocursorline
+setlocal nonu
