@@ -24,7 +24,7 @@ then
     mv ~/.zshrc ~/.zshrc.bak
 fi
 
-if [ -e ~/.oh-my-zsh ]
+if [ ! -e ~/.oh-my-zsh ]
 then
     sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 fi
