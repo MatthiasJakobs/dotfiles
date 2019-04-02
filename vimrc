@@ -54,11 +54,15 @@ vnoremap < <gv
 vnoremap > >gv
 vnoremap <leader>/ :TComment<CR>
 
-" Window controll
+" Window control
 noremap <C-h> <C-w>h
 noremap <C-j> <C-w>j
 noremap <C-k> <C-w>k
 noremap <C-l> <C-w>l
+
+" Buffer navigation
+nnoremap <leader>n :bnext<CR>
+nnoremap <leader>p :bprev<CR>
 
 " Sane searching
 set incsearch
