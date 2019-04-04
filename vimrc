@@ -27,6 +27,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
+Plugin 'davidhalter/jedi-vim'
 
 
 call vundle#end()
@@ -79,6 +80,9 @@ set backspace=indent,eol,start
 
 " Gitgutter
 set updatetime=100
+
+" Jedi-Vim
+autocmd FileType python setlocal completeopt-=preview
 
 " Airline
 let g:airline_theme = 'dracula'
