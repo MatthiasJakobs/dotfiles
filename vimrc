@@ -3,6 +3,7 @@ set cursorline
 set nu
 filetype off
 syntax on
+set hidden
 
 set t_Co=256
 
@@ -20,7 +21,7 @@ Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-Plugin 'bling/vim-bufferline'
+"Plugin 'bling/vim-bufferline'
 Plugin 'lervag/vimtex'
 Plugin 'tpope/vim-fugitive'
 Plugin 'scrooloose/nerdtree'
@@ -66,7 +67,7 @@ noremap <C-l> <C-w>l
 
 " Buffer navigation
 nnoremap <leader>n :bnext<CR>
-nnoremap <leader>p :bprev<CR>
+nnoremap <leader>m :bprev<CR>
 
 " Sane searching
 set incsearch
@@ -75,6 +76,11 @@ set hlsearch
 " I don't know why but otherwise the backspace key doesn't work as expected
 set backspace=indent,eol,start
 
+" Airline
+let g:airline_theme = 'dracula'
+let g:airline#extensions#bufferline#enabled = 0
+let g:airline#extensions#tabline#enabled = 1
+
 " NERDTree
 "" Exit if NERDTree is last window
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
@@ -82,3 +88,16 @@ autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isT
 "" Start NERDTree if vim opens directory
 autocmd StdinReadPre * let s:std_in=1
 autocmd VimEnter * if argc() == 1 && isdirectory(argv()[0]) && !exists("s:std_in") | exe 'NERDTree' argv()[0] | wincmd p | ene | exe 'cd '.argv()[0] | endif
+
+let g:NERDTreeIndicatorMapCustom = {
+    \ "Modified"  : "m",
+    \ "Staged"    : "s",
+    \ "Untracked" : "u",
+    \ "Renamed"   : "r",
+    \ "Unmerged"  : "c",
+    \ "Deleted"   : "d",
+    \ "Dirty"     : "✗",
+    \ "Clean"     : "✔︎",
+    \ 'Ignored'   : '☒',
+    \ "Unknown"   : "?"
+    \ }
