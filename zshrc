@@ -7,8 +7,22 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
-HOSTNAME="$(cat /proc/sys/kernel/hostname)"
-if [ "$HOSTNAME" = "wallace" ]
+SYSTEM="$(uname)"
+if [ "$SYSTEM" = "Darwin" ]
 then
-    source /home/matthias/.anaconda3/etc/profile.d/conda.sh
+    export PATH="/Users/Matthias/Library/Python/3.7/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/share/dotnet:/Library/TeX/texbin:/Users/Matthias/anaconda3/bin"
+
+    # At the moment only setup on mac
+    function ec2ssh {
+        ssh -i ~/Downloads/ChefkochCrawler.pem ec2-user@$1
+    }
+else
+    # Assuming Linux
+    HOSTNAME="$(cat /proc/sys/kernel/hostname)"
+    if [ "$HOSTNAME" = "wallace" ]
+    then
+        source /home/matthias/.anaconda3/etc/profile.d/conda.sh
+    fi
 fi
+
+
