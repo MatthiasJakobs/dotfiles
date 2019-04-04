@@ -24,6 +24,7 @@ Plugin 'vim-airline/vim-airline-themes'
 "Plugin 'bling/vim-bufferline'
 Plugin 'lervag/vimtex'
 Plugin 'tpope/vim-fugitive'
+Plugin 'airblade/vim-gitgutter'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
 
@@ -75,6 +76,9 @@ set hlsearch
 
 " I don't know why but otherwise the backspace key doesn't work as expected
 set backspace=indent,eol,start
+
+" Gitgutter
+set updatetime=100
 
 " Airline
 let g:airline_theme = 'dracula'
