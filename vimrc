@@ -43,7 +43,6 @@ set dir=/tmp//
 " Mapleader
 let mapleader=" "
 let maplocaleader=","
-nnoremap <leader>p :CtrlP<CR>
 let g:ctrlp_working_path_mode = 'ra'
 
 " Folding
@@ -83,6 +82,7 @@ set updatetime=100
 
 " Jedi-Vim
 autocmd FileType python setlocal completeopt-=preview
+let g:jedi#usages_command = "<leader>u"
 
 " Airline
 let g:airline_theme = 'dracula'
