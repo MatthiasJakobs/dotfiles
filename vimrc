@@ -43,7 +43,6 @@ set dir=/tmp//
 " Mapleader
 let mapleader=" "
 let maplocaleader=","
-let g:ctrlp_working_path_mode = 'ra'
 
 " Folding
 set fdm=syntax
@@ -81,6 +80,10 @@ set smartcase
 " I don't know why but otherwise the backspace key doesn't work as expected
 set backspace=indent,eol,start
 
+" CtrlP
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.aux,*.bbl,*.fdb_latexmk,*.blg,*.fls,*.toc
+let g:ctrlp_working_path_mode = 'ra'
+
 " Gitgutter
 set updatetime=100
 
@@ -94,6 +97,8 @@ let g:airline#extensions#bufferline#enabled = 0
 let g:airline#extensions#tabline#enabled = 1
 
 " NERDTree
+let NERDTreeRespectWildIgnore=1
+
 "" Exit if NERDTree is last window
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
 
