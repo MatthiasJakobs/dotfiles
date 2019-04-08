@@ -70,9 +70,13 @@ noremap <C-l> <C-w>l
 nnoremap <leader>n :bnext<CR>
 nnoremap <leader>m :bprev<CR>
 
+" Omnicomplete
+highlight Pmenu ctermbg=black gui=bold ctermfg=white
+
 " Sane searching
 set incsearch
 set hlsearch
+set smartcase
 
 " I don't know why but otherwise the backspace key doesn't work as expected
 set backspace=indent,eol,start
