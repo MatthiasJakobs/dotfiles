@@ -80,6 +80,15 @@ set smartcase
 " I don't know why but otherwise the backspace key doesn't work as expected
 set backspace=indent,eol,start
 
+" Vimtex
+let g:vimtex_quickfix_latexlog = {
+          \ 'overfull' : 0,
+          \ 'underfull' : 0,
+          \ 'packages' : {
+          \   'default' : 0,
+          \ },
+          \}
+
 " CtrlP
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.aux,*.bbl,*.fdb_latexmk,*.blg,*.fls,*.toc
 let g:ctrlp_working_path_mode = 'ra'
