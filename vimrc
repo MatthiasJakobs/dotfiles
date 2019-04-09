@@ -69,6 +69,9 @@ noremap <C-l> <C-w>l
 nnoremap <leader>n :bnext<CR>
 nnoremap <leader>m :bprev<CR>
 
+" Remove trailing whitespace on save
+autocmd BufWritePre * %s/\s\+$//e
+
 " Omnicomplete
 highlight Pmenu ctermbg=black gui=bold ctermfg=white
 
