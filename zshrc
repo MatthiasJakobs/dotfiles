@@ -25,4 +25,10 @@ else
     fi
 fi
 
+# General aliases
+alias e="exit"
+alias ta="tmux attach"
 
+alias ga="git add"
+alias gc="git commit"
+alias gs="git status"
