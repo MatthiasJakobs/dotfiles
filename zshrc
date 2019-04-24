@@ -7,6 +7,9 @@ plugins=(
 
 source $ZSH/oh-my-zsh.sh
 
+# FZF
+[ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
+
 SYSTEM="$(uname)"
 if [ "$SYSTEM" = "Darwin" ]
 then
