@@ -15,6 +15,9 @@ nnoremap k gk
 nnoremap <Up> gk
 nnoremap <Down> gj
 
+set spelllang=en,de
+set spell
+
 syn region math start=/\$\$/ end=/\$\$/
 syn match math '\$[^$].\{-}\$'
 hi link math Statement

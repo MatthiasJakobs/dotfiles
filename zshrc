@@ -25,6 +25,7 @@ else
     if [ "$HOSTNAME" = "wallace" ]
     then
         source /home/matthias/.anaconda3/etc/profile.d/conda.sh
+        export PATH=/home/matthias/.local/bin:$PATH
     fi
 fi
 
