@@ -15,8 +15,8 @@ nnoremap k gk
 nnoremap <Up> gk
 nnoremap <Down> gj
 
-set spelllang=en,de
-set spell
+setlocal spelllang=en,de
+setlocal spell
 
 syn region math start=/\$\$/ end=/\$\$/
 syn match math '\$[^$].\{-}\$'
