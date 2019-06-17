@@ -34,6 +34,8 @@ ln -s ~/.dotfiles/vim ~/.vim
 ln -s ~/.dotfiles/tmux.conf ~/.tmux.conf
 ln -s ~/.dotfiles/zshrc ~/.zshrc
 
+git clone --depth 1 https://github.com/superbrothers/zsh-kubectl-prompt ~/.dotfiles/zsh-kubectl-prompt
+
 # Install fzf
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install --key-bindings --completion --no-update-rc --no-bash --no-fish
