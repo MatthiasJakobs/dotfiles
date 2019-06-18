@@ -3,5 +3,6 @@ vim/colors
 vim/init.vim
 vim/plugin
 vim/.netrwhist
+zsh-kubectl-prompt
 
 .DS_Store
