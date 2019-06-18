@@ -39,3 +39,6 @@ alias ta="tmux attach"
 alias ga="git add"
 alias gc="git commit"
 alias gs="git status"
+
+alias k="kubectl"
+alias d="docker"
