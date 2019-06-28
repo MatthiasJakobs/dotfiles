@@ -22,6 +22,7 @@ Plugin 'tomtom/tcomment_vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 "Plugin 'bling/vim-bufferline'
+Plugin 'leafgarland/typescript-vim'
 Plugin 'lervag/vimtex'
 Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
@@ -95,6 +96,9 @@ let g:vimtex_quickfix_latexlog = {
 " CtrlP
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.aux,*.bbl,*.fdb_latexmk,*.blg,*.fls,*.toc
 let g:ctrlp_working_path_mode = 'ra'
+
+" Typescript
+let g:typescript_indent_disable = 1
 
 " Gitgutter
 set updatetime=100
