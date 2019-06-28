@@ -35,7 +35,7 @@ filetype plugin indent on
 
 let g:tex_flavor='tex'
 
-colorscheme dracula
+"colorscheme dracula
 
 " Vim Swap files
 set dir=/tmp//
@@ -104,7 +104,7 @@ autocmd FileType python setlocal completeopt-=preview
 let g:jedi#usages_command = "<leader>u"
 
 " Airline
-let g:airline_theme = 'dracula'
+"let g:airline_theme = 'dracula'
 let g:airline#extensions#bufferline#enabled = 0
 let g:airline#extensions#tabline#enabled = 1
 
