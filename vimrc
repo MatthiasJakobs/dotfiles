@@ -28,7 +28,7 @@ Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
-Plugin 'davidhalter/jedi-vim'
+"Plugin 'davidhalter/jedi-vim'
 
 
 call vundle#end()
@@ -71,7 +71,7 @@ nnoremap <leader>n :bnext<CR>
 nnoremap <leader>m :bprev<CR>
 
 " Remove trailing whitespace on save
-autocmd BufWritePre * %s/\s\+$//e
+"autocmd BufWritePre * %s/\s\+$//e
 
 " Omnicomplete
 highlight Pmenu ctermbg=black gui=bold ctermfg=white
