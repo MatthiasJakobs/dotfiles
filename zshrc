@@ -28,6 +28,10 @@ else
         source /home/matthias/.anaconda3/etc/profile.d/conda.sh
         export PATH=/home/matthias/.local/bin:$PATH
     fi
+    if [ "$HOSTNAME" = "kiosk" ]
+    then
+        export PATH=/home/jakobs/miniconda3/bin:$PATH
+    fi
 fi
 
 RPROMPT='($(echo $ZSH_KUBECTL_CONTEXT | tr "/" "\n" | tail -n1))'
