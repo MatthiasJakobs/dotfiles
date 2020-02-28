@@ -6,7 +6,7 @@ plugins=(
 )
 
 source $ZSH/oh-my-zsh.sh
-source $HOME/.dotfiles/zsh-kubectl-prompt/kubectl.zsh
+#source $HOME/.dotfiles/zsh-kubectl-prompt/kubectl.zsh
 
 # FZF
 [ -f ~/.fzf.zsh ] && source ~/.fzf.zsh
@@ -44,7 +44,7 @@ else
     fi
 fi
 
-RPROMPT='($(echo $ZSH_KUBECTL_CONTEXT | tr "/" "\n" | tail -n1))'
+#RPROMPT='($(echo $ZSH_KUBECTL_CONTEXT | tr "/" "\n" | tail -n1))'
 
 # General aliases
 alias e="exit"
