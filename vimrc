@@ -1,6 +1,7 @@
 set nocompatible
 set cursorline
 set nu
+set rnu
 filetype off
 syntax on
 set hidden
@@ -22,9 +23,9 @@ Plugin 'tomtom/tcomment_vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
 "Plugin 'bling/vim-bufferline'
-Plugin 'leafgarland/typescript-vim'
+"Plugin 'leafgarland/typescript-vim'
 Plugin 'lervag/vimtex'
-Plugin 'tpope/vim-fugitive'
+"Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
@@ -45,15 +46,14 @@ set dir=/tmp//
 let mapleader=" "
 let maplocaleader=","
 
+nnoremap <leader>r :source ~/.vimrc<CR>
+
 " Folding
 set fdm=syntax
 nnoremap <leader>a za
 nnoremap <leader>c zC
 nnoremap <leader>o zO
 
-" netrw
-"let g:netrw_banner=0
-nnoremap <leader>e :Explore<CR>
 
 " Visual Remaps
 vnoremap < <gv
@@ -69,6 +69,9 @@ noremap <C-l> <C-w>l
 " Buffer navigation
 nnoremap <leader>n :bnext<CR>
 nnoremap <leader>m :bprev<CR>
+nnoremap <leader>b :b
+" Remove terminals from bufferlist
+autocmd TerminalOpen * setlocal nobuflisted
 
 " Remove trailing whitespace on save
 "autocmd BufWritePre * %s/\s\+$//e
@@ -114,6 +117,7 @@ let g:airline#extensions#tabline#enabled = 1
 
 " NERDTree
 let NERDTreeRespectWildIgnore=1
+nnoremap <leader>e :NERDTreeToggle<CR>
 
 "" Exit if NERDTree is last window
 autocmd bufenter * if (winnr("$") == 1 && exists("b:NERDTree") && b:NERDTree.isTabTree()) | q | endif
