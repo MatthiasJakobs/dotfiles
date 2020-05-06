@@ -37,7 +37,7 @@ filetype plugin indent on
 
 let g:tex_flavor='tex'
 
-"colorscheme dracula
+colorscheme dracula
 
 " Vim Swap files
 set dir=/tmp//
