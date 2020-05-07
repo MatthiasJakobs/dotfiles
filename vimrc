@@ -59,6 +59,7 @@ nnoremap <leader>o zO
 vnoremap < <gv
 vnoremap > >gv
 vnoremap <leader>/ :TComment<CR>
+nnoremap <leader>/ gcc
 
 " Window control
 noremap <C-h> <C-w>h
@@ -70,6 +71,7 @@ noremap <C-l> <C-w>l
 nnoremap <leader>n :bnext<CR>
 nnoremap <leader>m :bprev<CR>
 nnoremap <leader>b :b
+nnoremap <leader>d :bp<bar>sp<bar>bn<bar>bd<CR>
 " Remove terminals from bufferlist
 autocmd TerminalOpen * setlocal nobuflisted
 
