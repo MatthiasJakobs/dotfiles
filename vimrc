@@ -17,27 +17,28 @@ set rtp+=~/.vim/bundle/Vundle.vim
 call vundle#begin()
 
 Plugin 'VundleVim/Vundle.vim'
+
 Plugin 'dracula/vim'
+Plugin 'morhetz/gruvbox'
+
 Plugin 'ctrlpvim/ctrlp.vim'
 Plugin 'tomtom/tcomment_vim'
 Plugin 'vim-airline/vim-airline'
 Plugin 'vim-airline/vim-airline-themes'
-"Plugin 'bling/vim-bufferline'
-"Plugin 'leafgarland/typescript-vim'
 Plugin 'lervag/vimtex'
-"Plugin 'tpope/vim-fugitive'
 Plugin 'airblade/vim-gitgutter'
 Plugin 'scrooloose/nerdtree'
 Plugin 'Xuyuanp/nerdtree-git-plugin'
-"Plugin 'davidhalter/jedi-vim'
-
 
 call vundle#end()
+
+
 filetype plugin indent on
 
 let g:tex_flavor='tex'
 
-colorscheme dracula
+colorscheme gruvbox
+set bg=dark
 
 " Vim Swap files
 set dir=/tmp//
@@ -59,7 +60,7 @@ nnoremap <leader>o zO
 vnoremap < <gv
 vnoremap > >gv
 vnoremap <leader>/ :TComment<CR>
-nnoremap <leader>/ gcc
+nnoremap <leader>/ :TComment<CR>
 
 " Window control
 noremap <C-h> <C-w>h
