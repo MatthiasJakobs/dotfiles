@@ -12,32 +12,32 @@ set t_Co=256
 set tabstop=4 shiftwidth=4 expandtab
 set autoindent
 
-" Vundle
-set rtp+=~/.vim/bundle/Vundle.vim
-call vundle#begin()
+" Plugins
+call plug#begin('~/.vim/plugged')
 
-Plugin 'VundleVim/Vundle.vim'
+""" Themes
+Plug 'dracula/vim'
+Plug 'morhetz/gruvbox'
+Plug 'joshdick/onedark.vim'
 
-Plugin 'dracula/vim'
-Plugin 'morhetz/gruvbox'
+Plug 'ctrlpvim/ctrlp.vim'
+Plug 'tomtom/tcomment_vim'
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'lervag/vimtex'
+Plug 'airblade/vim-gitgutter'
+Plug 'scrooloose/nerdtree'
+Plug 'Xuyuanp/nerdtree-git-plugin'
+Plug 'tpope/vim-fugitive'
 
-Plugin 'ctrlpvim/ctrlp.vim'
-Plugin 'tomtom/tcomment_vim'
-Plugin 'vim-airline/vim-airline'
-Plugin 'vim-airline/vim-airline-themes'
-Plugin 'lervag/vimtex'
-Plugin 'airblade/vim-gitgutter'
-Plugin 'scrooloose/nerdtree'
-Plugin 'Xuyuanp/nerdtree-git-plugin'
-
-call vundle#end()
+call plug#end()
 
 
 filetype plugin indent on
 
 let g:tex_flavor='tex'
 
-colorscheme gruvbox
+colorscheme onedark
 set bg=dark
 
 " Vim Swap files
@@ -143,3 +143,11 @@ let g:NERDTreeIndicatorMapCustom = {
     \ }
 
 set shell=/usr/bin/zsh
+
+" Fugitive
+nmap <leader>gs :G<CR>
+nmap <leader>gc :G commit<CR>
+nmap <leader>gp :G pull<CR>
+nmap <leader>gP :G push<CR>
+nmap <leader>gf :diffget //3<CR>
+nmap <leader>gh :diffget //2<CR>
