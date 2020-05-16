@@ -29,6 +29,7 @@ Plug 'airblade/vim-gitgutter'
 Plug 'scrooloose/nerdtree'
 Plug 'Xuyuanp/nerdtree-git-plugin'
 Plug 'tpope/vim-fugitive'
+Plug 'ycm-core/YouCompleteMe'
 
 call plug#end()
 
@@ -112,6 +113,7 @@ set updatetime=100
 " Jedi-Vim
 autocmd FileType python setlocal completeopt-=preview
 let g:jedi#usages_command = "<leader>u"
+let g:jedi#popup_on_dot = 0
 
 " Airline
 "let g:airline_theme = 'dracula'
