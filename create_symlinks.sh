@@ -24,6 +24,17 @@ then
     mv ~/.zshrc ~/.zshrc.bak
 fi
 
+if [ ! -e ~/.config/alacritty ]
+then
+    mkdir ~/.config/alacritty
+fi
+
+if [ -e ~/.config/alacritty/alacritty.yml ]
+  then
+    echo "~/.config/alacritty/alacritty.yml config already exists, moving to ~/.config/alacritty/alacritty.yml.bak"
+    mv ~/.config/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml.bak
+fi
+
 if [ ! -e ~/.oh-my-zsh ]
 then
     sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
@@ -33,9 +44,13 @@ ln -s ~/.dotfiles/vimrc ~/.vimrc
 ln -s ~/.dotfiles/vim ~/.vim
 ln -s ~/.dotfiles/tmux.conf ~/.tmux.conf
 ln -s ~/.dotfiles/zshrc ~/.zshrc
+ln -s ~/.dotfiles/alacritty.yml ~/.config/alacritty/alacritty.yml
 
 git clone --depth 1 https://github.com/superbrothers/zsh-kubectl-prompt ~/.dotfiles/zsh-kubectl-prompt
 
 # Install fzf
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
 ~/.fzf/install --key-bindings --completion --no-update-rc --no-bash --no-fish
+
+# Install Plug
+curl -fLo ~/.vim/autoload/plug.vim --create-dirs https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim
