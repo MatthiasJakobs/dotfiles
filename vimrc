@@ -98,6 +98,8 @@ let g:vimtex_quickfix_latexlog = {
           \   'default' : 0,
           \ },
           \}
+let g:vimtex_complete_enabled = 1
+autocmd FileType tex,latex inoremap <buffer> <C-<Space>> <C-X><C-O>
 
 " CtrlP
 set wildignore+=*/tmp/*,*.so,*.swp,*.zip,*.aux,*.bbl,*.fdb_latexmk,*.blg,*.fls,*.toc
