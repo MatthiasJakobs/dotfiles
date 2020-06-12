@@ -25,7 +25,7 @@ else
     HOSTNAME="$(cat /proc/sys/kernel/hostname)"
     if [ "$HOSTNAME" = "wallace" ]
     then
-        source /home/matthias/.anaconda3/etc/profile.d/conda.sh
+# source /home/matthias/.anaconda3/etc/profile.d/conda.sh  # commented out by conda initialize
         export PATH=/home/matthias/.local/bin:$PATH
     fi
     if [ "$HOSTNAME" = "kiosk" ]
@@ -35,9 +35,9 @@ else
             eval "$__conda_setup"
         else
             if [ -f "/home/jakobs/miniconda3/etc/profile.d/conda.sh" ]; then
-                . "/home/jakobs/miniconda3/etc/profile.d/conda.sh"
+# . "/home/jakobs/miniconda3/etc/profile.d/conda.sh"  # commented out by conda initialize
             else
-                export PATH="/home/jakobs/miniconda3/bin:$PATH"
+# export PATH="/home/jakobs/miniconda3/bin:$PATH"  # commented out by conda initialize
             fi
         fi
         unset __conda_setup
@@ -56,3 +56,28 @@ alias gs="git status"
 
 alias k="kubectl"
 alias d="docker"
+
+cdc () {
+    builtin cd $1
+}
+
+cd () {
+    builtin cd $1
+    ls
+}
+
+# >>> conda initialize >>>
+# !! Contents within this block are managed by 'conda init' !!
+__conda_setup="$('/home/matty/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
+if [ $? -eq 0 ]; then
+    eval "$__conda_setup"
+else
+    if [ -f "/home/matty/miniconda3/etc/profile.d/conda.sh" ]; then
+        . "/home/matty/miniconda3/etc/profile.d/conda.sh"
+    else
+        export PATH="/home/matty/miniconda3/bin:$PATH"
+    fi
+fi
+unset __conda_setup
+# <<< conda initialize <<<
+
