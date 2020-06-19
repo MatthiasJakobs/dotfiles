@@ -6,7 +6,7 @@ filetype off
 syntax on
 set hidden
 
-set t_Co=256
+set t_Co=16
 
 " correct indentation
 set tabstop=4 shiftwidth=4 expandtab
@@ -37,7 +37,7 @@ filetype plugin indent on
 
 let g:tex_flavor='tex'
 
-colorscheme onedark
+colorscheme dracula
 set bg=dark
 
 " Vim Swap files
@@ -110,6 +110,7 @@ let g:typescript_indent_disable = 1
 
 " Gitgutter
 set updatetime=100
+highlight SignColumn guibg=black ctermbg=white
 
 " Jedi-Vim
 autocmd FileType python setlocal completeopt-=preview
