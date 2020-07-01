@@ -72,6 +72,8 @@ alias gs="git status"
 alias k="kubectl"
 alias d="docker"
 
+alias jupyter-remote="ssh -CNL localhost:5678:localhost:5678 jakobs@kiosk"
+
 cdc () {
     builtin cd $1
 }

@@ -110,7 +110,7 @@ let g:typescript_indent_disable = 1
 
 " Gitgutter
 set updatetime=100
-highlight SignColumn guibg=black ctermbg=white
+highlight SignColumn guibg=black ctermbg=black ctermfg=white
 
 " Jedi-Vim
 autocmd FileType python setlocal completeopt-=preview
