@@ -4,7 +4,7 @@ nnoremap k gk
 nnoremap <Up> gk
 nnoremap <Down> gj
 
-set spelllang=en
+set spelllang=en,de
 set spell
 
 setlocal autoindent
