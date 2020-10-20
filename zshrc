@@ -49,6 +49,8 @@ else
     fi
     if [ "$HOSTNAME" = "kiosk" ]
     then
+        alias matlab=/app/unido-i08/lix86_2.6.64/matlab/2019b/bin/matlab
+
         __conda_setup="$('/home/jakobs/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
         if [ $? -eq 0 ]; then
             eval "$__conda_setup"
