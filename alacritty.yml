@@ -1,10 +1,10 @@
 font:
   normal:
-    family: Monospace
+    family: Source Code Pro
   bold:
-    family: Monospace
+    family: Source Code Pro
   italic:
-    family: Monospace
+    family: Source Code Pro
 
   size: 10.0
 
