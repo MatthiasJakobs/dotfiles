@@ -43,6 +43,10 @@ else
         fi
         unset __conda_setup
     fi
+    if [ "$HOSTNAME" = "gwkilab" ]
+    then
+        alias d="./home/jakobs/.docker/securedocker -H s876cnsm:2379"
+    fi
     if [ "$HOSTNAME" = "kiosk" ]
     then
         __conda_setup="$('/home/jakobs/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
