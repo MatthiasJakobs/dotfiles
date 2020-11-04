@@ -56,6 +56,7 @@
   :config
 )
 (ivy-mode 1)
+(setq ivy-initial-inputs-alist nil)
 
 (use-package counsel
   :bind (("C-M-j" . 'counsel-switch-buffer)
