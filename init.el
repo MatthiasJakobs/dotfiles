@@ -79,6 +79,11 @@
   (evil-mode 1)
   (define-key evil-insert-state-map (kbd "C-h") 'evil-delete-backward-char-and-join))
 
+(use-package evil-collection
+  :after evil
+  :config
+  (evil-collection-init))
+
 ;; general.el
 (use-package general
   :config
@@ -94,9 +99,23 @@
   (prog-mode . rainbow-delimiters-mode))
 
 ;; dracula theme
-(use-package dracula-theme
-  :init
-  (load-theme 'dracula t))
+;; (use-package dracula-theme
+;;   :init
+;;   (load-theme 'dracula t))
+
+;; doom-dracula theme
+(use-package doom-themes
+  :init (load-theme 'doom-dracula t))
+
+;; dired
+(use-package dired
+  :ensure nil
+  :commands (dired dired-jump)
+  :custom ((dired-listing-switches "-agho --group-directories-first"))
+  :config
+  (evil-collection-define-key 'normal 'dired-mode-map
+    "h" 'dired-up-directory
+    "l" 'dired-find-file))
 
 ;; which-key
 (use-package which-key
@@ -148,28 +167,59 @@
   (setq lsp-headerline-breadcrumb-segments '(path-up-to-project file symbols))
   (lsp-headerline-breadcrumb-mode))
 
-(use-package lsp-mode
-  :commands (lsp lsp-deferred)
-  :hook (lsp-mode . efs/lsp-mode-setup)
-  :init
-  :config
-  (lsp-enable-which-key-integration t))
+;; (use-package lsp-mode
+;;   :commands (lsp lsp-deferred)
+;;   :hook (lsp-mode . efs/lsp-mode-setup)
+;;   :init
+;;   :config
+;;   (lsp-enable-which-key-integration t))
 
-(use-package lsp-ui
-  :hook (lsp-mode . lsp-ui-mode)
-  :custom
-  (lsp-ui-doc-position 'bottom))
+;; (use-package lsp-ui
+;;   :hook (lsp-mode . lsp-ui-mode)
+;;   :custom
+;;   (lsp-ui-doc-position 'bottom))
+
+;; (use-package lsp-python-ms
+;;   :ensure t
+;;   :init (setq lsp-python-ms-auto-install-server t)
+;;   :hook (python-mode . (lambda ()
+;;                           (require 'lsp-python-ms)
+;;                           (lsp))))  ; or lsp-deferred
+
+(use-package conda
+  :init
+  (setq conda-env-home-directory "/home/matty/.miniconda3")
+  (setq conda-anaconda-home "/home/matty/.miniconda3"))
+
+(use-package anaconda-mode)
+(add-hook 'python-mode-hook 'anaconda-mode)
+
 
 (use-package company
-  :after lsp-mode
-  :hook (lsp-mode . company-mode)
+  :after anaconda-mode
+  :hook (anaconda-mode . company-mode)
   :bind (:map company-active-map
-         ("<tab>" . company-complete-selection))
+         ("<tab>" . company-complete-selection)
+         ("C-k" . company-select-previous)
+         ("C-j" . company-select-next))
         (:map lsp-mode-map
          ("<tab>" . company-indent-or-complete-common))
   :custom
   (company-minimum-prefix-length 1)
   (company-idle-delay 0.0))
+
+;; (use-package company
+;;   :after lsp-mode
+;;   :hook (lsp-mode . company-mode)
+;;   :bind (:map company-active-map
+;;          ("<tab>" . company-complete-selection))
+;;         (:map lsp-mode-map
+;;          ("<tab>" . company-indent-or-complete-common))
+;;   :custom
+;;   (company-minimum-prefix-length 1)
+;;   (company-idle-delay 0.0))
+
+(use-package company-anaconda)
 
 (use-package company-box
   :hook (company-mode . company-box-mode))
@@ -186,6 +236,7 @@
   "bd" '(kill-this-buffer :which-key "delete buffer")
 
   "p" '(projectile-command-map :which-key "projectile")
+  "/" '(comment-or-uncomment-region :which-key "comment")
 
   "g" '(magit-status :which-key "git")
 

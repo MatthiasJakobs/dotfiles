@@ -45,6 +45,7 @@ ln -s ~/.dotfiles/vim ~/.vim
 ln -s ~/.dotfiles/tmux.conf ~/.tmux.conf
 ln -s ~/.dotfiles/zshrc ~/.zshrc
 ln -s ~/.dotfiles/alacritty.yml ~/.config/alacritty/alacritty.yml
+ln -s ~/.dotfiles/emacs/init.el ~/.emacs.d/init.el
 
 git clone --depth 1 https://github.com/superbrothers/zsh-kubectl-prompt ~/.dotfiles/zsh-kubectl-prompt
 
