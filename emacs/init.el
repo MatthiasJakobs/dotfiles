@@ -278,7 +278,7 @@
   "r" '(:ignore t :which-key "research")
   "rb" '(ivy-bibtex :which-key "search bibliography")
   "rf" '(org-roam-find-file :which-key "find note")
-  "ri" '(org-roam-insert-file :which-key "insert note")
+  "ri" '(org-roam-insert :which-key "insert note")
   "ra" '(org-roam-alias-add :which-key "add alias")
 
   "l" '(:ignore t :which-key "lsp")
@@ -286,5 +286,3 @@
   "lr" '(lsp-find-references :which-key "find references")
   "ld" '(lsp-find-definition :which-key "find definition"))
 
-; TODOS
-; counsel-ag
