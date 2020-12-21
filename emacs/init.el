@@ -6,6 +6,9 @@
 (menu-bar-mode -1)                ; Disable menu bar
 (setq ring-bell-function 'ignore) ; No bell whatsover
 
+; Put backups in certain directories
+(setq backup-directory-alist `(("." . "~/.emacs_saves")))
+
 ; Make ESC quit prompts
 (global-set-key (kbd "<escape>") 'keyboard-escape-quit)
 
@@ -22,6 +25,13 @@
 		vterm-mode-hook
 		eshell-mode-hook))
   (add-hook mode (lambda () (display-line-numbers-mode 0))))
+
+;; Better compilation (auto-scrolling)
+(setq compilation-scroll-output t)
+
+;; Put this stuff in separate file
+(setq custom-file "~/.emacs.d/custom.el")
+(load custom-file)
 
 ; Package management
 (require 'package)
@@ -92,16 +102,13 @@
     :keymaps 'override
     :prefix "SPC"
     :global-prefix "C-SPC"))
+
+(general-simulate-key "C-c")
   
 ;; rainbow-delimiters
 (use-package rainbow-delimiters
   :hook
   (prog-mode . rainbow-delimiters-mode))
-
-;; dracula theme
-;; (use-package dracula-theme
-;;   :init
-;;   (load-theme 'dracula t))
 
 ;; doom-dracula theme
 (use-package doom-themes
@@ -153,7 +160,6 @@
 
 (use-package git-gutter)
 (global-git-gutter-mode +1)
-(custom-set-variables '(git-gutter:hide-gutter t)) ; Do not show if no changes
 
 ;; terminal
 (use-package vterm
@@ -161,43 +167,48 @@
   :config
   (setq vterm-shell "zsh")                       ;; Set this to customize the shell to launch
   (setq vterm-max-scrollback 10000))
+(add-hook 'vterm-mode-hook (lambda ()
+  (setq-local global-hl-line-mode nil)))
 
 ;; lsp
-(defun efs/lsp-mode-setup ()
-  (setq lsp-headerline-breadcrumb-segments '(path-up-to-project file symbols))
-  (lsp-headerline-breadcrumb-mode))
+(use-package lsp-mode
+  :commands
+  (lsp lsp-deferred)
+  :config
+  (lsp-enable-which-key-integration t))
 
-;; (use-package lsp-mode
-;;   :commands (lsp lsp-deferred)
-;;   :hook (lsp-mode . efs/lsp-mode-setup)
-;;   :init
-;;   :config
-;;   (lsp-enable-which-key-integration t))
+(use-package lsp-ivy)
 
-;; (use-package lsp-ui
-;;   :hook (lsp-mode . lsp-ui-mode)
-;;   :custom
-;;   (lsp-ui-doc-position 'bottom))
+(use-package dap-mode
+  :config
+  (general-define-key
+   :keymaps 'lsp-mode-map
+   :prefix lsp-keymap-prefix
+   "d" '(dap-hydra t :wk "debugger"))
+  (setq dap-auto-configure-features '(repl controls tooltip)))
 
-;; (use-package lsp-python-ms
-;;   :ensure t
-;;   :init (setq lsp-python-ms-auto-install-server t)
-;;   :hook (python-mode . (lambda ()
-;;                           (require 'lsp-python-ms)
-;;                           (lsp))))  ; or lsp-deferred
+;; python
+(use-package python-mode
+  :ensure t
+  :hook
+  (python-mode . lsp-deferred)
+  :config
+  (require 'dap-python))
 
-(use-package conda
+(use-package pyvenv
   :init
-  (setq conda-env-home-directory "/home/matty/.miniconda3")
-  (setq conda-anaconda-home "/home/matty/.miniconda3"))
+  (setenv "WORKON_HOME" "~/.miniconda3/envs")
+  :config
+  (pyvenv-mode t))
 
-(use-package anaconda-mode)
-(add-hook 'python-mode-hook 'anaconda-mode)
-
+;; Latex
+(use-package reftex
+  :hook
+  (latex-mode . reftex-mode))
 
 (use-package company
-  :after anaconda-mode
-  :hook (anaconda-mode . company-mode)
+  :after lsp-mode
+  :hook (lsp-mode . company-mode)
   :bind (:map company-active-map
          ("<tab>" . company-complete-selection)
          ("C-k" . company-select-previous)
@@ -208,22 +219,8 @@
   (company-minimum-prefix-length 1)
   (company-idle-delay 0.0))
 
-;; (use-package company
-;;   :after lsp-mode
-;;   :hook (lsp-mode . company-mode)
-;;   :bind (:map company-active-map
-;;          ("<tab>" . company-complete-selection))
-;;         (:map lsp-mode-map
-;;          ("<tab>" . company-indent-or-complete-common))
-;;   :custom
-;;   (company-minimum-prefix-length 1)
-;;   (company-idle-delay 0.0))
-
-(use-package company-anaconda)
-
 (use-package company-box
   :hook (company-mode . company-box-mode))
-
 
 ; Keybindings
 (matty/leader-keys
@@ -246,7 +243,24 @@
   "ff" '(counsel-find-file :which-key "find file")
   "fr" '(vc-rename-file :which-key "rename file")
 
-  "l" '(:ignore t :which-key "lsp"))
+  "m" '(general-simulate-C-c :which-key "major")
+
+  "d" '(:ignore t :which-key "dap")
+  "dd" '(dap-debug :which-key "start debugging")
+  "ds" '(dap-disconnect :which-key "stop debugging")
+  "dl" '(dap-debug-last :which-key "debug last config")
+  "db" '(dap-breakpoint-toggle :which-key "toggle breakpoint")
+  "dh" '(dap-hydra :which-key "hydra")
+  "dB" '(dap-ui-breakpoints-list :which-key "list breakpoints")
+  "dn" '(dap-next :which-key "next")
+  "dc" '(dap-continue :which-key "continue")
+  "di" '(dap-step-in :which-key "step in")
+  "do" '(dap-step-out :which-key "step out")
+
+  "l" '(:ignore t :which-key "lsp")
+  "ll" '(lsp :which-key "start lsp")
+  "lr" '(lsp-find-references :which-key "find references")
+  "ld" '(lsp-find-definition :which-key "find definition"))
 
 ; TODOS
 ; counsel-ag

@@ -1,9 +1,12 @@
 ZSH="$HOME/.oh-my-zsh"
-ZSH_THEME="af-magic"
+#ZSH_THEME="af-magic"
+ZSH_THEME="kolo"
 
 plugins=(
   git
   ssh-agent
+  vi-mode
+  zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -42,6 +45,7 @@ else
             fi
         fi
         unset __conda_setup
+        export PATH=/home/matty/.emacs.d/bin:$PATH
     fi
     if [ "$HOSTNAME" = "gwkilab" ]
     then
