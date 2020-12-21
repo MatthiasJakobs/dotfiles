@@ -172,6 +172,18 @@
   :custom
   (org-roam-directory "~/exocortex/org-roam/"))
 
+(use-package org-roam-bibtex
+  :after org-roam
+  :hook (org-roam-mode . org-roam-bibtex-mode)
+  :config
+  (setq orb-preformat-keywords '("author-abbrev" "citekey" "year"))
+  (setq orb-templates '(
+      ("r" "literature" plain (function org-roam-capture--get-point) ""
+        :file-name "${citekey}"
+        :head "#+TITLE: ${author-abbrev} (${year}): ${title}\n#+roam_key: ${ref}\n#+roam_tags: literature"
+        :unnarrowed t)
+      )))
+
 ;; terminal
 (use-package vterm
   :commands vterm
@@ -217,11 +229,12 @@
   :hook
   (latex-mode . reftex-mode))
 
-(use-package ivy-bibtex
+(use-package helm-bibtex
   :config
   (setq bibtex-completion-bibliography '("~/exocortex/library.bib"))
   (setq bibtex-completion-pdf-field "File")
   (setq bibtex-completion-notes-path "~/exocortex/org-roam/")
+  ;(setq bibtex-completion-notes-template-multiple-files "#+TITLE: ${author-abbrev} (${year}): ${title}\n#+ROAM_KEY: ${citekey}\n")
   (setq ivy-bibtex-default-action 'ivy-bibtex-edit-notes))
 
 (use-package company
@@ -280,6 +293,8 @@
   "rf" '(org-roam-find-file :which-key "find note")
   "ri" '(org-roam-insert :which-key "insert note")
   "ra" '(org-roam-alias-add :which-key "add alias")
+  "rt" '(org-roam-buffer-toggle-display :which-key "toggle backlinks")
+  "rc" '(org-roam-capture :which-key "capture note")
 
   "l" '(:ignore t :which-key "lsp")
   "ll" '(lsp :which-key "start lsp")
