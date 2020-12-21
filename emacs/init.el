@@ -206,6 +206,13 @@
   :hook
   (latex-mode . reftex-mode))
 
+(use-package ivy-bibtex
+  :config
+  (setq bibtex-completion-bibliography '("~/exocortex/library.bib"))
+  (setq bibtex-completion-pdf-field "File")
+  (setq bibtex-completion-notes-path "~/exocortex/org-roam/")
+  (setq ivy-bibtex-default-action 'ivy-bibtex-edit-notes))
+
 (use-package company
   :after lsp-mode
   :hook (lsp-mode . company-mode)
@@ -256,6 +263,9 @@
   "dc" '(dap-continue :which-key "continue")
   "di" '(dap-step-in :which-key "step in")
   "do" '(dap-step-out :which-key "step out")
+
+  "r" '(:ignore t :which-key "research")
+  "rb" '(ivy-bibtex :which-key "search bibliography")
 
   "l" '(:ignore t :which-key "lsp")
   "ll" '(lsp :which-key "start lsp")
