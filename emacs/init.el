@@ -87,7 +87,8 @@
   (setq evil-want-C-u-scroll t)
   :config
   (evil-mode 1)
-  (define-key evil-insert-state-map (kbd "C-h") 'evil-delete-backward-char-and-join))
+  (define-key evil-insert-state-map (kbd "C-h") 'evil-delete-backward-char-and-join)
+  (define-key evil-motion-state-map (kbd "RET") nil))
 
 (use-package evil-collection
   :after evil
@@ -160,6 +161,16 @@
 
 (use-package git-gutter)
 (global-git-gutter-mode +1)
+
+;; org-stuff
+(setq org-return-follows-link t)
+
+;; roam
+(use-package org-roam
+  :hook
+  (after-init . org-roam-mode)
+  :custom
+  (org-roam-directory "~/exocortex/org-roam/"))
 
 ;; terminal
 (use-package vterm
@@ -266,6 +277,9 @@
 
   "r" '(:ignore t :which-key "research")
   "rb" '(ivy-bibtex :which-key "search bibliography")
+  "rf" '(org-roam-find-file :which-key "find note")
+  "ri" '(org-roam-insert-file :which-key "insert note")
+  "ra" '(org-roam-alias-add :which-key "add alias")
 
   "l" '(:ignore t :which-key "lsp")
   "ll" '(lsp :which-key "start lsp")
