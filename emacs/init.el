@@ -162,8 +162,25 @@
 (use-package git-gutter)
 (global-git-gutter-mode +1)
 
-;; org-stuff
-(setq org-return-follows-link t)
+;; org-mode
+
+(defun matty/org-mode-setup ()
+  (org-indent-mode)
+  (visual-line-mode 1))
+
+(use-package org
+  :hook
+  (org-mode . matty/org-mode-setup)
+  :config
+  (setq org-ellipsis " ▾")
+  (setq org-hide-emphasis-markers t)
+  (setq org-return-follows-link t))
+
+(use-package org-bullets
+  :after org
+  :hook (org-mode . org-bullets-mode)
+  :custom
+  (org-bullets-bullet-list '("◉" "○" "●" "○" "●" "○" "●")))
 
 ;; roam
 (use-package org-roam
