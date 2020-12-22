@@ -141,7 +141,10 @@ This config is heavily based on David Wilson's [[https://github.com/daviwil/emac
     :config
     (setq org-ellipsis " ▾")
     (setq org-hide-emphasis-markers t)
-    (setq org-return-follows-link t))
+    (setq org-return-follows-link t)
+    :init
+    (add-hook 'org-mode-hook #'company-mode))
+
 
 (use-package org-bullets
     :after org
@@ -152,6 +155,7 @@ This config is heavily based on David Wilson's [[https://github.com/daviwil/emac
 #+end_src
 ** Roam
 #+begin_src emacs-lisp
+
 (use-package org-roam
     :hook
     (after-init . org-roam-mode)
@@ -169,6 +173,7 @@ This config is heavily based on David Wilson's [[https://github.com/daviwil/emac
         :head "#+TITLE: ${author-abbrev} (${year}): ${title}\n#+roam_key: ${ref}\n#+roam_tags: literature"
         :unnarrowed t)
         )))
+        
 #+end_src
 ** Babel Templates
 #+begin_src emacs-lisp
@@ -266,7 +271,12 @@ This config is heavily based on David Wilson's [[https://github.com/daviwil/emac
 (use-package company-box
     :hook (company-mode . company-box-mode))
 
+ (add-hook 'org-mode-hook
+          (lambda ()
+            (set (make-local-variable 'company-backends) '(company-capf))))
+
 #+end_src
+
 * Project management
 #+begin_src emacs-lisp
 
