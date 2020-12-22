@@ -155,7 +155,17 @@ This config is heavily based on David Wilson's [[https://github.com/daviwil/emac
 ; better latex font rendering in org-mode
 (setq org-format-latex-options (quote (:foreground default :background default :scale 1.5 :matchers ("begin" "$1" "$" "$$" "\\(" "\\["))))
 
+; Center org-mode buffers        
+(defun matty/org-mode-visual-fill ()
+  (setq visual-fill-column-width 100
+        visual-fill-column-center-text t)
+  (visual-fill-column-mode 1))
+
+(use-package visual-fill-column
+  :hook (org-mode . matty/org-mode-visual-fill))
+
 #+end_src
+
 ** Roam
 #+begin_src emacs-lisp
 
