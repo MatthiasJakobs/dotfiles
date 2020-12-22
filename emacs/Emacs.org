@@ -1,7 +1,6 @@
 #+TITLE Emacs configuration
 #+PROPERTY: header-args:emacs-lisp :tangle ./init.el
 
-
 This config is heavily based on David Wilson's [[https://github.com/daviwil/emacs-from-scratch][Emacs from Scratch]] series.
 
 * General UI
@@ -151,6 +150,9 @@ This config is heavily based on David Wilson's [[https://github.com/daviwil/emac
     :hook (org-mode . org-bullets-mode)
     :custom
     (org-bullets-bullet-list '("◉" "○" "●" "○" "●" "○" "●")))
+    
+; better latex font rendering in org-mode
+(setq org-format-latex-options (quote (:foreground default :background default :scale 1.5 :matchers ("begin" "$1" "$" "$$" "\\(" "\\["))))
 
 #+end_src
 ** Roam
@@ -170,7 +172,7 @@ This config is heavily based on David Wilson's [[https://github.com/daviwil/emac
     (setq orb-templates '(
         ("r" "literature" plain (function org-roam-capture--get-point) ""
         :file-name "${citekey}"
-        :head "#+TITLE: ${author-abbrev} (${year}): ${title}\n#+roam_key: ${ref}\n#+roam_tags: literature"
+        :head "#+TITLE: ${author-abbrev} (${year}): ${title}\n#+roam_key: ${ref}\n#+roam_tags: literature\n#+startup: latexpreview\n\n"
         :unnarrowed t)
         )))
         
