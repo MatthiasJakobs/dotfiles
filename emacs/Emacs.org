@@ -96,7 +96,7 @@ This config is heavily based on David Wilson's [[https://github.com/daviwil/emac
 (use-package general
     :config
     (general-create-definer matty/leader-keys
-    :states '(normal motion)
+    :states '(normal insert motion)
     :keymaps 'override
     :prefix "SPC"
     :global-prefix "C-SPC"))
@@ -115,6 +115,7 @@ This config is heavily based on David Wilson's [[https://github.com/daviwil/emac
     :config
     (evil-mode 1)
     (define-key evil-insert-state-map (kbd "C-h") 'evil-delete-backward-char-and-join)
+    (define-key evil-motion-state-map (kbd "C-SPC") nil)
     (define-key evil-motion-state-map (kbd "RET") nil))
 
 (use-package evil-collection
