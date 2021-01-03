@@ -340,7 +340,6 @@ This config is heavily based on David Wilson's [[https://github.com/daviwil/emac
     "bd" '(kill-this-buffer :which-key "delete buffer")
 
     "p" '(projectile-command-map :which-key "projectile")
-    "/" '(comment-or-uncomment-region :which-key "comment")
 
     "g" '(magit-status :which-key "git")
 
@@ -375,7 +374,16 @@ This config is heavily based on David Wilson's [[https://github.com/daviwil/emac
     "l" '(:ignore t :which-key "lsp")
     "ll" '(lsp :which-key "start lsp")
     "lr" '(lsp-find-references :which-key "find references")
-    "ld" '(lsp-find-definition :which-key "find definition"))
+    "ld" '(lsp-find-definition :which-key "find definition")
+    
+    "h" '(:ignore t :which-key "help")
+    "hv" '(describe-variable :which-key "describe variable")
+    "hf" '(describe-function :which-key "describe function")
+
+    ; random little things
+    "/" '(comment-or-uncomment-region :which-key "comment")
+    ":" '(eval-expression :which-key "eval")
+)
 
 #+end_src
 * Misc
