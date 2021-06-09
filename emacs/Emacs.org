@@ -163,7 +163,7 @@ This config is heavily based on David Wilson's [[https://github.com/daviwil/emac
 
 ; Center org-mode buffers        
 (defun matty/org-mode-visual-fill ()
-  (setq visual-fill-column-width 100
+  (setq visual-fill-column-width 80
         visual-fill-column-center-text t)
   (visual-fill-column-mode 1))
 
@@ -178,6 +178,13 @@ This config is heavily based on David Wilson's [[https://github.com/daviwil/emac
 (use-package org-roam
     :hook
     (after-init . org-roam-mode)
+    :config
+    (setq org-roam-capture-templates
+        (quote (("c" "Concept" plain (function org-roam--capture-get-point)
+                 "%?"
+                 :file-name "${slug}"
+                 :head "#+TITLE: ${title}\n#+roam_tags: concept\n\n"
+                 :unnarrowed t))))
     :custom
     (org-roam-directory "~/exocortex/org-roam/"))
 
@@ -189,7 +196,7 @@ This config is heavily based on David Wilson's [[https://github.com/daviwil/emac
     (setq orb-templates '(
         ("r" "literature" plain (function org-roam-capture--get-point) ""
         :file-name "${citekey}"
-        :head "#+TITLE: ${author-abbrev} (${year}): ${title}\n#+roam_key: ${ref}\n#+roam_tags: literature\n#+startup: latexpreview\n\n"
+        :head "#+TITLE: ${author-abbrev} (${year}): ${title}\n#+roam_key: ${ref}\n#+roam_tags: literature\n#+startup: latexpreview\n#+roam_alias: ${citekey}\n\n"
         :unnarrowed t)
         )))
         
@@ -226,7 +233,7 @@ This config is heavily based on David Wilson's [[https://github.com/daviwil/emac
 
 (use-package helm-bibtex
     :config
-    (setq bibtex-completion-bibliography '("~/exocortex/library.bib"))
+    (setq bibtex-completion-bibliography '("~/Zotero/library.bib"))
     (setq bibtex-completion-pdf-field "File")
     (setq bibtex-completion-notes-path "~/exocortex/org-roam/")
     ;(setq bibtex-completion-notes-template-multiple-files "#+TITLE: ${author-abbrev} (${year}): ${title}\n#+ROAM_KEY: ${citekey}\n")
@@ -363,13 +370,13 @@ This config is heavily based on David Wilson's [[https://github.com/daviwil/emac
     "di" '(dap-step-in :which-key "step in")
     "do" '(dap-step-out :which-key "step out")
 
-    "r" '(:ignore t :which-key "research")
-    "rb" '(ivy-bibtex :which-key "search bibliography")
-    "rf" '(org-roam-find-file :which-key "find note")
-    "ri" '(org-roam-insert :which-key "insert note")
-    "ra" '(org-roam-alias-add :which-key "add alias")
-    "rt" '(org-roam-buffer-toggle-display :which-key "toggle backlinks")
-    "rc" '(org-roam-capture :which-key "capture note")
+    "o" '(:ignore t :which-key "org")
+    "ob" '(ivy-bibtex :which-key "search bibliography")
+    "of" '(org-roam-find-file :which-key "find note")
+    "oi" '(org-roam-insert :which-key "insert note")
+    "oa" '(org-roam-alias-add :which-key "add alias")
+    "ot" '(org-roam-buffer-toggle-display :which-key "toggle backlinks")
+    "oc" '(org-roam-capture :which-key "capture note")
 
     "l" '(:ignore t :which-key "lsp")
     "ll" '(lsp :which-key "start lsp")
@@ -383,6 +390,8 @@ This config is heavily based on David Wilson's [[https://github.com/daviwil/emac
     ; random little things
     "/" '(comment-or-uncomment-region :which-key "comment")
     ":" '(eval-expression :which-key "eval")
+    "C-j" '(org-mark-ring-goto :which-key "go back")
+    "C-k" '(org-mark-ring-push :which-key "mark position")
 )
 
 #+end_src

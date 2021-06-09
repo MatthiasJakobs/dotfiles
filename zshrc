@@ -1,6 +1,5 @@
 ZSH="$HOME/.oh-my-zsh"
-#ZSH_THEME="af-magic"
-ZSH_THEME="kolo"
+ZSH_THEME="af-magic"
 
 plugins=(
   git
@@ -95,4 +94,8 @@ cd () {
 
 open () {
     xdg-open $1 &
+}
+
+rename_git() {
+    git remote set-url origin $(git remote -v | grep fetch | awk '{print $2}' | sed "s/matty265/MatthiasJakobs/g")
 }
