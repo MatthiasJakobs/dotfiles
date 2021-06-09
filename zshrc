@@ -4,6 +4,8 @@ ZSH_THEME="af-magic"
 plugins=(
   git
   ssh-agent
+  vi-mode
+  zsh-syntax-highlighting
 )
 
 source $ZSH/oh-my-zsh.sh
@@ -42,6 +44,7 @@ else
             fi
         fi
         unset __conda_setup
+        export PATH=/home/matty/.emacs.d/bin:$PATH
     fi
     if [ "$HOSTNAME" = "gwkilab" ]
     then
@@ -93,6 +96,10 @@ open () {
     xdg-open $1 &
 }
 
+rename_git() {
+    git remote set-url origin $(git remote -v | grep fetch | awk '{print $2}' | sed "s/matty265/MatthiasJakobs/g")
+}
+
 # >>> conda initialize >>>
 # !! Contents within this block are managed by 'conda init' !!
 __conda_setup="$('/home/jakobs/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
@@ -107,4 +114,3 @@ else
 fi
 unset __conda_setup
 # <<< conda initialize <<<
-
