@@ -23,6 +23,7 @@ call plug#begin('~/.config/nvim/plugged')
 Plug 'gruvbox-community/gruvbox'
 Plug 'tomtom/tcomment_vim'
 Plug 'airblade/vim-gitgutter'
+Plug 'easymotion/vim-easymotion'
 call plug#end()
 
 colorscheme gruvbox
@@ -34,6 +35,14 @@ let mapleader=' '
 nnoremap <leader>n :bnext<CR>
 nnoremap <leader>d :bd<CR>
 nnoremap <leader>N :bprevious<CR>
+nnoremap <leader>j <C-w>j
+nnoremap <leader>k <C-w>k
+nnoremap <leader>l <C-w>l
+nnoremap <leader>h <C-w>h
+
+" Easymotion
+map <leader>w <Plug>(easymotion-bd-w)
+nmap <leader>w <Plug>(easymotion-overwin-w)
 
 " Terminal Remaps
 tnoremap <Esc> <C-\><C-n>
@@ -43,3 +52,9 @@ vnoremap < <gv
 vnoremap > >gv
 vnoremap <leader>/ :TComment<CR>
 nnoremap <leader>/ :TComment<CR>
+
+" Latex
+au BufRead,BufNewFile *.tex setlocal wrap
+au BufRead,BufNewFile *.tex setlocal linebreak
+au BufRead,BufNewFile *.tex nnoremap j gj
+au BufRead,BufNewFile *.tex nnoremap k gk
