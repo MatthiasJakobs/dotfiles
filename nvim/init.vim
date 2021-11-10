@@ -21,7 +21,9 @@ set guicursor=
 " Plugins
 call plug#begin('~/.config/nvim/plugged')
 Plug 'gruvbox-community/gruvbox'
+Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tomtom/tcomment_vim'
+Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'airblade/vim-gitgutter'
 call plug#end()
 
@@ -43,3 +45,14 @@ vnoremap < <gv
 vnoremap > >gv
 vnoremap <leader>/ :TComment<CR>
 nnoremap <leader>/ :TComment<CR>
+
+" CtrlP
+let g:ctrlp_map = '<c-p>'
+let g:ctrlp_cmd = 'CtrlP'
+set wildignore+=*/tmp/*,*.so,*.swp,*.zip,.git/*
+
+" LSP
+nmap <silent> gd <Plug>(coc-definition)
+nmap <silent> gy <Plug>(coc-type-definion)
+nmap <silent> gi <Plug>(coc-implementation)
+nmap <silent> gr <Plug>(coc-references)
