@@ -25,6 +25,7 @@ Plug 'ctrlpvim/ctrlp.vim'
 Plug 'tomtom/tcomment_vim'
 Plug 'neoclide/coc.nvim', {'branch': 'release'}
 Plug 'airblade/vim-gitgutter'
+Plug 'easymotion/vim-easymotion'
 call plug#end()
 
 colorscheme gruvbox
@@ -36,6 +37,14 @@ let mapleader=' '
 nnoremap <leader>n :bnext<CR>
 nnoremap <leader>d :bd<CR>
 nnoremap <leader>N :bprevious<CR>
+nnoremap <leader>j <C-w>j
+nnoremap <leader>k <C-w>k
+nnoremap <leader>l <C-w>l
+nnoremap <leader>h <C-w>h
+
+" Easymotion
+map <leader>w <Plug>(easymotion-bd-w)
+nmap <leader>w <Plug>(easymotion-overwin-w)
 
 " Terminal Remaps
 tnoremap <Esc> <C-\><C-n>
@@ -56,3 +65,9 @@ nmap <silent> gd <Plug>(coc-definition)
 nmap <silent> gy <Plug>(coc-type-definion)
 nmap <silent> gi <Plug>(coc-implementation)
 nmap <silent> gr <Plug>(coc-references)
+
+" Latex
+au BufRead,BufNewFile *.tex setlocal wrap
+au BufRead,BufNewFile *.tex setlocal linebreak
+au BufRead,BufNewFile *.tex nnoremap j gj
+au BufRead,BufNewFile *.tex nnoremap k gk
