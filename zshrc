@@ -33,18 +33,7 @@ else
     fi
     if [ "$HOSTNAME" = "athena" ]
     then
-        __conda_setup="$('/home/matty/.miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-        if [ $? -eq 0 ]; then
-            eval "$__conda_setup"
-        else
-            if [ -f "/home/matty/.miniconda3/etc/profile.d/conda.sh" ]; then
-# . "/home/jakobs/miniconda3/etc/profile.d/conda.sh"  # commented out by conda initialize
-            else
-# export PATH="/home/jakobs/miniconda3/bin:$PATH"  # commented out by conda initialize
-            fi
-        fi
-        unset __conda_setup
-        export PATH=/home/matty/.emacs.d/bin:$PATH
+        export PATH=/home/matty/bin:$PATH
     fi
     if [ "$HOSTNAME" = "gwkilab" ]
     then
@@ -82,6 +71,8 @@ alias k="kubectl"
 alias d="docker"
 
 alias jupyter-remote="ssh -CNL localhost:5678:localhost:5678 jakobs@kiosk"
+alias pling="paplay /usr/share/sounds/freedesktop/stereo/complete.oga"
+alias toot="paplay /home/matty/Documents/clown_short.wav"
 
 cdc () {
     builtin cd $1
@@ -98,6 +89,10 @@ open () {
 
 rename_git() {
     git remote set-url origin $(git remote -v | grep fetch | awk '{print $2}' | sed "s/matty265/MatthiasJakobs/g")
+}
+
+pyenvs(){
+    source ~/.pyenvs/$1/bin/activate
 }
 
 # >>> conda initialize >>>

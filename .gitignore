@@ -4,6 +4,7 @@ vim/init.vim
 vim/plugin
 vim/plugged
 vim/autoload
+vim/undodir
 vim/.netrwhist
 zsh-kubectl-prompt
 emacs/init.el

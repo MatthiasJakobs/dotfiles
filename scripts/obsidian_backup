@@ -4,7 +4,7 @@
 ts=$(date +"%Y-%m-%d-%H-%M")
 
 # Make filename
-filename=$ts".tar.gz"
+filename=$ts
 
 # Paths to Obsidian vault and backup location
 topath="/home/$(whoami)/OneDrive/Backups/"
