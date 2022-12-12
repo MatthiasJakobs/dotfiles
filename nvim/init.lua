@@ -25,5 +25,12 @@ vim.cmd [[
     set updatetime=100
 
     colorscheme NeoSolarized
+    set signcolumn=yes
+
+    let g:ctrlp_map = '<c-p>'
+    let g:ctrlp_cmd = 'CtrlP'
+    let g:ctrlp_working_path_mode = 'ra'
+
+    set clipboard+=unnamedplus
 ]]
 

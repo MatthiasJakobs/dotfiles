@@ -7,4 +7,6 @@ require('packer').startup(function()
   use 'airblade/vim-gitgutter'
   use 'nvim-treesitter/nvim-treesitter'
   use 'overcache/NeoSolarized'
+  use 'ctrlpvim/ctrlp.vim'
+  use 'tpope/vim-commentary'
 end)
