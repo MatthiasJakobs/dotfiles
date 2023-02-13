@@ -9,4 +9,5 @@ require('packer').startup(function()
   use 'overcache/NeoSolarized'
   use 'ctrlpvim/ctrlp.vim'
   use 'tpope/vim-commentary'
+  use 'christoomey/vim-tmux-navigator'
 end)

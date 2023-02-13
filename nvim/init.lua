@@ -11,6 +11,7 @@ vim.cmd [[
 	set smartindent
 	set nohlsearch
 	set incsearch
+    set smartcase
 	set nowrap
 	set nu
 	set hidden
@@ -24,7 +25,6 @@ vim.cmd [[
 	set guicursor=
     set updatetime=100
 
-    colorscheme NeoSolarized
     set signcolumn=yes
 
     let g:ctrlp_map = '<c-p>'
