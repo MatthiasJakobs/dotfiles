@@ -1,7 +1,4 @@
 require('_packages')
-require('_mappings')
-require('_lsp')
-require('_dap')
 
 -- Legacy settings
 vim.cmd [[
@@ -25,6 +22,9 @@ vim.cmd [[
 	set guicursor=
     set updatetime=100
 
+    syntax enable
+    colorscheme dracula
+
     set signcolumn=yes
 
     let g:ctrlp_map = '<c-p>'
@@ -33,4 +33,8 @@ vim.cmd [[
 
     set clipboard+=unnamedplus
 ]]
+
+require('_mappings')
+require('_lsp')
+require('_dap')
 

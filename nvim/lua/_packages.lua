@@ -6,8 +6,9 @@ require('packer').startup(function()
   use 'neovim/nvim-lspconfig' 
   use 'airblade/vim-gitgutter'
   use 'nvim-treesitter/nvim-treesitter'
-  use 'overcache/NeoSolarized'
+  use 'dracula/vim'
   use 'ctrlpvim/ctrlp.vim'
   use 'tpope/vim-commentary'
   use 'christoomey/vim-tmux-navigator'
+  use 'psliwka/termcolors.nvim'
 end)

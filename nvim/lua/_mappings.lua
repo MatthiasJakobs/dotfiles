@@ -1,5 +1,8 @@
 vim.g.mapleader = ' '
 
+-- Escape
+vim.keymap.set('i', 'jk', '<ESC>')
+
 -- Buffers
 vim.keymap.set('n', '<Leader>n', ':bnext<CR>')
 vim.keymap.set('n', '<Leader>N', ':bprev<CR>')
