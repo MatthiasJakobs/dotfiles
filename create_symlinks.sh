@@ -12,6 +12,12 @@ then
     mv ~/.vim ~/.vim.bak
 fi
 
+if [ -e ~/.config/nvim ]
+then
+    echo "~/.config/nvim already exists, moving to ~/.nvim.bak"
+    mv ~/.config/nvim ~/.nvim.bak
+fi
+
 if [ -e ~/.tmux.conf ]
 then
     echo "~/.tmux.conf already exists, moving to ~/.tmux.conf.bak"
@@ -42,6 +48,7 @@ fi
 
 ln -s ~/.dotfiles/vimrc ~/.vimrc
 ln -s ~/.dotfiles/vim ~/.vim
+ln -s ~/.dotfiles/nvim ~/.config/nvim
 ln -s ~/.dotfiles/tmux.conf ~/.tmux.conf
 ln -s ~/.dotfiles/zshrc ~/.zshrc
 ln -s ~/.dotfiles/alacritty.yml ~/.config/alacritty/alacritty.yml
