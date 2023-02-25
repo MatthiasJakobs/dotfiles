@@ -24,6 +24,7 @@ vim.cmd [[
 
     syntax enable
     colorscheme dracula
+    set background=dark
 
     set signcolumn=yes
 
