@@ -27,15 +27,11 @@ vim.cmd [[
     set background=dark
 
     set signcolumn=yes
-
-    let g:ctrlp_map = '<c-p>'
-    let g:ctrlp_cmd = 'CtrlP'
-    let g:ctrlp_working_path_mode = 'ra'
-
     set clipboard+=unnamedplus
 ]]
 
 require('_mappings')
 require('_lsp')
 require('_dap')
+require('_telescope')
 

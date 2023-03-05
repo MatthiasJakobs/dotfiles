@@ -11,3 +11,4 @@ emacs/init.el
 
 .DS_Store
 *~
+nvim/plugin
