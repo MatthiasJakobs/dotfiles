@@ -12,8 +12,17 @@ require('packer').startup(function()
     use 'tpope/vim-commentary'
     use 'christoomey/vim-tmux-navigator'
     use 'psliwka/termcolors.nvim'
+    -- Telescope
     use {
-      'nvim-telescope/telescope.nvim', tag = '0.1.1',
-      requires = { {'nvim-lua/plenary.nvim'} }
+        'nvim-telescope/telescope.nvim', tag = '0.1.1',
+        requires = { {'nvim-lua/plenary.nvim'} }
     }
+    -- Completion
+    use 'hrsh7th/nvim-cmp'
+    use 'hrsh7th/cmp-buffer'
+    use 'hrsh7th/cmp-path'
+    use 'hrsh7th/cmp-nvim-lsp'
+    use 'saadparwaiz1/cmp_luasnip'
+    use 'onsails/lspkind.nvim'
+        
 end)

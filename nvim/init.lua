@@ -34,4 +34,5 @@ require('_mappings')
 require('_lsp')
 require('_dap')
 require('_telescope')
+require('_completion')
 
