@@ -8,7 +8,6 @@ require('packer').startup(function()
     use 'airblade/vim-gitgutter'
     use 'nvim-treesitter/nvim-treesitter'
     use 'dracula/vim'
-    use 'ctrlpvim/ctrlp.vim'
     use 'tpope/vim-commentary'
     use 'christoomey/vim-tmux-navigator'
     use 'psliwka/termcolors.nvim'
@@ -24,5 +23,7 @@ require('packer').startup(function()
     use 'hrsh7th/cmp-nvim-lsp'
     use 'saadparwaiz1/cmp_luasnip'
     use 'onsails/lspkind.nvim'
+
+    use 'lukas-reineke/indent-blankline.nvim'
         
 end)
