@@ -11,22 +11,23 @@ vim.keymap.set('n', '<Leader>dq', '<cmd>lua require"dap".disconnect()<CR>')
 local dap = require('dap')
 
 --- Configurations
--- dap.configurations.python = {
---   {
---     type = 'python';
---     request = 'launch';
---     name = "Launch Current";
---     program = "${workspaceFolder}/${file}";
---     console = "integratedTerminal";
---   },
---   {
---     type = 'python';
---     request = 'launch';
---     name = "Launch test.py";
---     program = "${workspaceFolder}/test.py";
---     console = "integratedTerminal";
---   },
--- }
+dap.configurations.python = {
+  {
+    type = 'python';
+    request = 'launch';
+    name = "Launch Current";
+    program = "${workspaceFolder}/${file}";
+    console = "integratedTerminal";
+  },
+  {
+    type = 'python';
+    request = 'launch';
+    name = "Launch test.py";
+    program = "${workspaceFolder}/test.py";
+    console = "integratedTerminal";
+  },
+}
+-- Also, overwrite if vscode file available 
 require('dap.ext.vscode').load_launchjs()
 
 vim.api.nvim_set_hl(0, 'DapBreakpoint', { fg = 'white', bg = 'purple' })
