@@ -6,26 +6,28 @@ vim.keymap.set('n', '<Leader>dr', '<cmd>lua require"dap".repl.open({}, "belowrig
 vim.keymap.set('n', '<Leader>dj', '<cmd>lua require"dap".step_over()<CR>')
 vim.keymap.set('n', '<Leader>dh', '<cmd>lua require"dap".step_into()<CR>')
 vim.keymap.set('n', '<Leader>dl', '<cmd>lua require"dap".step_out()<CR>')
+vim.keymap.set('n', '<Leader>dq', '<cmd>lua require"dap".disconnect()<CR>')
 
 local dap = require('dap')
 
 --- Configurations
-dap.configurations.python = {
-  {
-    type = 'python';
-    request = 'launch';
-    name = "Launch Current";
-    program = "${workspaceFolder}/${file}";
-    console = "integratedTerminal";
-  },
-  {
-    type = 'python';
-    request = 'launch';
-    name = "Launch test.py";
-    program = "${workspaceFolder}/test.py";
-    console = "integratedTerminal";
-  },
-}
+-- dap.configurations.python = {
+--   {
+--     type = 'python';
+--     request = 'launch';
+--     name = "Launch Current";
+--     program = "${workspaceFolder}/${file}";
+--     console = "integratedTerminal";
+--   },
+--   {
+--     type = 'python';
+--     request = 'launch';
+--     name = "Launch test.py";
+--     program = "${workspaceFolder}/test.py";
+--     console = "integratedTerminal";
+--   },
+-- }
+require('dap.ext.vscode').load_launchjs()
 
 vim.api.nvim_set_hl(0, 'DapBreakpoint', { fg = 'white', bg = 'purple' })
 vim.api.nvim_set_hl(0, 'DapStopped', { fg = 'white', bg = 'green' })
