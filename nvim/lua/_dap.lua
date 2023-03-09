@@ -9,22 +9,13 @@ vim.keymap.set('n', '<Leader>dl', '<cmd>lua require"dap".step_out()<CR>')
 
 local dap = require('dap')
 
---- Sane debugging (close all panes after it's done)
-function close_all_debug_panes()
-    -- dap.repl.close()
-    dap.disconnect({terminateDebugee = true})
-end
---vim.keymap.set('n', '<Leader>dq', '<cmd> lua close_all_debug_panes()<CR><C-w>j:q<CR>')
-vim.keymap.set('n', '<Leader>dq', '<cmd> lua close_all_debug_panes()<CR>')
--- dap.defaults.python.terminal_win_cmd = 'belowright 10new'
-
 --- Configurations
 dap.configurations.python = {
   {
     type = 'python';
     request = 'launch';
     name = "Launch Current";
-    program = "${file}";
+    program = "${workspaceFolder}/${file}";
     console = "integratedTerminal";
   },
   {
