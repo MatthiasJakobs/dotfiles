@@ -11,6 +11,7 @@ vim.cmd [[
     set smartcase
 	set nowrap
 	set nu
+    set rnu
 	set hidden
 	set noerrorbells
 	set noswapfile
