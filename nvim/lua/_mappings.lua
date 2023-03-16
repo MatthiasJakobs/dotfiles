@@ -25,3 +25,7 @@ vim.keymap.set('n', '<Leader>M', '<C-w>T')
 
 -- Comments
 vim.keymap.set('v', '/', ':Commentary<CR>')
+
+-- Visual mode
+vim.keymap.set('v', '<', '<gv')
+vim.keymap.set('v', '>', '>gv')
