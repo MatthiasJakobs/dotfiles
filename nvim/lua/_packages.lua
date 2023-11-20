@@ -20,10 +20,17 @@ require('packer').startup(function()
     use 'hrsh7th/nvim-cmp'
     use 'hrsh7th/cmp-buffer'
     use 'hrsh7th/cmp-path'
+    use 'hrsh7th/cmp-omni' -- For TeX
     use 'hrsh7th/cmp-nvim-lsp'
     use 'saadparwaiz1/cmp_luasnip'
-    use 'onsails/lspkind.nvim'
 
+    use 'onsails/lspkind.nvim'
     use 'lukas-reineke/indent-blankline.nvim'
+    use 'lervag/vimtex'
+
+    use 'nvim-tree/nvim-tree.lua'
+    use 'nvim-tree/nvim-web-devicons'
+
+    use 'pangloss/vim-javascript'
         
 end)

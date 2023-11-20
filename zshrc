@@ -18,12 +18,8 @@ source $ZSH/oh-my-zsh.sh
 SYSTEM="$(uname)"
 if [ "$SYSTEM" = "Darwin" ]
 then
-    export PATH="/Users/Matthias/Library/Python/3.7/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/share/dotnet:/Library/TeX/texbin:/Users/Matthias/anaconda3/bin"
+    #export PATH="/Users/Matthias/Library/Python/3.7/bin:/usr/local/bin:/usr/bin:/bin:/usr/sbin:/sbin:/opt/X11/bin:/usr/local/share/dotnet:/Library/TeX/texbin:/Users/Matthias/anaconda3/bin"
 
-    # At the moment only setup on mac
-    function ec2ssh {
-        ssh -i ~/Downloads/ChefkochCrawler.pem ec2-user@$1
-    }
 else
     # Assuming Linux
     HOSTNAME="$(cat /proc/sys/kernel/hostname)"
@@ -84,10 +80,6 @@ cd () {
     ls
 }
 
-open () {
-    xdg-open $1 &
-}
-
 rename_git() {
     git remote set-url origin $(git remote -v | grep fetch | awk '{print $2}' | sed "s/matty265/MatthiasJakobs/g")
 }
@@ -95,18 +87,6 @@ rename_git() {
 pyenvs(){
     source ~/.pyenvs/$1/bin/activate
 }
-
-# >>> conda initialize >>>
-# !! Contents within this block are managed by 'conda init' !!
-__conda_setup="$('/home/jakobs/miniconda3/bin/conda' 'shell.zsh' 'hook' 2> /dev/null)"
-if [ $? -eq 0 ]; then
-    eval "$__conda_setup"
-else
-    if [ -f "/home/jakobs/miniconda3/etc/profile.d/conda.sh" ]; then
-        . "/home/jakobs/miniconda3/etc/profile.d/conda.sh"
-    else
-        export PATH="/home/jakobs/miniconda3/bin:$PATH"
-    fi
-fi
-unset __conda_setup
-# <<< conda initialize <<<
+source /opt/homebrew/opt/chruby/share/chruby/chruby.sh
+source /opt/homebrew/opt/chruby/share/chruby/auto.sh
+chruby ruby-3.1.3

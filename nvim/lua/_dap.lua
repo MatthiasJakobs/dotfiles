@@ -16,7 +16,8 @@ dap.configurations.python = {
     type = 'python';
     request = 'launch';
     name = "Launch Current";
-    program = "${workspaceFolder}/${file}";
+    -- program = "${workspaceFolder}/${file}";
+    program = "${file}";
     console = "integratedTerminal";
   },
   {
@@ -105,4 +106,7 @@ dap.listeners.before.event_exited["dapui_config"] = function()
   dapui.close()
 end
 
-
+local configurations = require('dap').configurations.python
+for _, configuration in pairs(configurations) do
+    configuration.subProcess = false
+end

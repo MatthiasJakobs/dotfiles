@@ -24,6 +24,7 @@ vim.cmd [[
     set updatetime=100
 
     syntax enable
+    filetype plugin on
     colorscheme dracula
     set background=dark
 
@@ -36,4 +37,6 @@ require('_lsp')
 require('_dap')
 require('_telescope')
 require('_completion')
+require('_tex')
+require('_tree')
 

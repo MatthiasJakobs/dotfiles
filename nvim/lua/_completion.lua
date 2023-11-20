@@ -35,6 +35,25 @@ cmp.setup {
     },
     experimental = {
         native_menu = false,
-        ghost_text = true
+        ghost_text = false
     }
 }
+
+cmp.setup.filetype("tex", {
+    sources = {
+        { name = "omni" },
+        { name = "buffer", keyword_length=2},
+        { name = "path" }
+    },
+    formatting = {
+      format = function(entry, vim_item)
+          vim_item.menu = ({
+            omni = (vim.inspect(vim_item.menu):gsub('%"', "")),
+            buffer = "[Buffer]",
+            -- formatting for other sources
+            })[entry.source.name]
+          return vim_item
+        end,
+    },
+
+})
