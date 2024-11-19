@@ -3,9 +3,9 @@ require('packer').startup(function()
     use 'wbthomason/packer.nvim' 
     use 'mfussenegger/nvim-dap'
     use 'mfussenegger/nvim-dap-python'
-    use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap"} }
+    use { "rcarriga/nvim-dap-ui", requires = {"mfussenegger/nvim-dap", "nvim-neotest/nvim-nio"} }
     use 'neovim/nvim-lspconfig' 
-    use 'airblade/vim-gitgutter'
+    use { 'airblade/vim-gitgutter', branch = 'main' }
     use 'nvim-treesitter/nvim-treesitter'
     use 'dracula/vim'
     use 'tpope/vim-commentary'
@@ -16,6 +16,11 @@ require('packer').startup(function()
         'nvim-telescope/telescope.nvim', tag = '0.1.4',
         requires = { {'nvim-lua/plenary.nvim'} }
     }
+    use {
+        'BurntSushi/ripgrep',
+        requries = { {'nvim-telescope/telescope.nvim' }}
+    }
+    use 'tpope/vim-fugitive'
     -- Completion
     use 'hrsh7th/nvim-cmp'
     use 'hrsh7th/cmp-buffer'
