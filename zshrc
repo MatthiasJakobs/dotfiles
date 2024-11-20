@@ -1,6 +1,7 @@
 ZSH="$HOME/.oh-my-zsh"
 #ZSH_THEME="af-magic"
-ZSH_THEME="robbyrussell"
+#ZSH_THEME="robbyrussell"
+ZSH_THEME="afowler"
 
 plugins=(
   git
@@ -25,9 +26,6 @@ alias gs="git status"
 
 alias k="kubectl"
 alias d="docker"
-
-alias pling="paplay /usr/share/sounds/freedesktop/stereo/complete.oga"
-alias toot="paplay /home/matty/Documents/clown_short.wav"
 
 cdc () {
     builtin cd $1
