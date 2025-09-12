@@ -44,4 +44,7 @@ source /opt/homebrew/opt/chruby/share/chruby/auto.sh
 chruby ruby-3.1.3
 
 pyenvs main
-eval "$(zoxide init zsh)"
+
+if which zoxide >/dev/null 2>&1; then
+    eval "$(zoxide init zsh)"
+fi
