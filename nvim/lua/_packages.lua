@@ -8,6 +8,7 @@ require('packer').startup(function()
     use { 'airblade/vim-gitgutter', branch = 'main' }
     use 'nvim-treesitter/nvim-treesitter'
     use 'dracula/vim'
+    use 'folke/tokyonight.nvim'
     use 'tpope/vim-commentary'
     use 'christoomey/vim-tmux-navigator'
     use 'psliwka/termcolors.nvim'

@@ -25,7 +25,7 @@ vim.cmd [[
 
     syntax enable
     filetype plugin on
-    colorscheme dracula
+    colorscheme tokyonight
     set background=dark
 
     set signcolumn=yes

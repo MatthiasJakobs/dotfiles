@@ -44,3 +44,4 @@ source /opt/homebrew/opt/chruby/share/chruby/auto.sh
 chruby ruby-3.1.3
 
 pyenvs main
+eval "$(zoxide init zsh)"
