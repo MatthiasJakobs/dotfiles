@@ -35,10 +35,10 @@ then
     mkdir ~/.config/alacritty
 fi
 
-if [ -e ~/.config/alacritty/alacritty.yml ]
+if [ -e ~/.config/alacritty/alacritty.toml ]
   then
-    echo "~/.config/alacritty/alacritty.yml config already exists, moving to ~/.config/alacritty/alacritty.yml.bak"
-    mv ~/.config/alacritty/alacritty.yml ~/.config/alacritty/alacritty.yml.bak
+    echo "~/.config/alacritty/alacritty.toml config already exists, moving to ~/.config/alacritty/alacritty.toml.bak"
+    mv ~/.config/alacritty/alacritty.toml ~/.config/alacritty/alacritty.toml.bak
 fi
 
 if [ ! -e ~/.oh-my-zsh ]
