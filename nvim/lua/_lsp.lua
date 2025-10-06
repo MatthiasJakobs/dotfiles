@@ -28,7 +28,7 @@ end
 local servers = { 'pyright' }
 for _, lsp in pairs(servers) do
     vim.lsp.config(lsp, {
-        on_attach = on_attach,
+        -- on_attach = on_attach,
         flags = {
           debounce_text_changes = 150,
         },
@@ -40,6 +40,7 @@ for _, lsp in pairs(servers) do
             },
         },
     })
+    vim.lsp.enable(lsp)
 end
 
 -- this is for diagnositcs signs on the line number column
