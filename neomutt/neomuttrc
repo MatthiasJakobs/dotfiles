@@ -1,0 +1,58 @@
+#vim: filetype=muttrc
+#
+set editor = "nvim"
+set my_name = "Matthias Jakobs"
+set imap_check_subscribed
+set sort = threads
+
+unset confirmappend
+set quit
+
+set header_cache = "~/.cache/mutt"
+set message_cachedir = "~/.cache/mutt"
+set mark_old=no
+
+# Pager View Options
+set pager_index_lines = 10  # Shows 10 lines of index when pager is active
+set pager_context = 3
+set pager_stop
+set menu_scroll
+set tilde
+unset markers
+
+# Accounts
+source work.account
+source dracula.muttrc
+
+# Keybindings
+# General rebindings
+bind attach <return> view-mailcap
+bind attach l view-mailcap
+bind editor <space> noop
+bind pager c imap-fetch-mail
+bind index G last-entry
+bind index g noop
+bind index gg first-entry
+bind pager,attach h exit
+bind pager j next-line
+bind pager k previous-line
+bind pager l view-attachments
+bind index D delete-message
+bind index U undelete-message
+bind index L limit
+bind index h noop
+bind index l display-message
+bind browser h goto-parent
+bind browser l select-entry
+bind pager,browser gg top-page
+bind pager,browser G bottom-page
+bind index,pager,browser d half-down
+bind index,pager,browser u half-up
+bind index,pager R group-reply
+bind index \031 previous-undeleted	# Mouse wheel
+bind index \005 next-undeleted		# Mouse wheel
+bind pager \031 previous-line		# Mouse wheel
+bind pager \005 next-line		# Mouse wheel
+bind editor <Tab> complete-query
+
+macro index,pager a "<save-message>+INBOX/Archive<enter>" "Archive message"

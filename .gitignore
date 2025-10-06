@@ -8,6 +8,7 @@ vim/undodir
 vim/.netrwhist
 zsh-kubectl-prompt
 emacs/init.el
+neomutt/work.account
 
 .DS_Store
 *~

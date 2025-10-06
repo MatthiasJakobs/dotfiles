@@ -46,6 +46,12 @@ then
     sh -c "$(wget https://raw.githubusercontent.com/robbyrussell/oh-my-zsh/master/tools/install.sh -O -)"
 fi
 
+if [ -e ~/.config/neomutt ]
+then
+    echo "~/.config/neomutt config already exists, moving to ~/.config/neomutt.bak"
+    mv ~/.config/neomutt/ ~/.config/neomutt.bak
+fi
+
 ln -s ~/.dotfiles/vimrc ~/.vimrc
 ln -s ~/.dotfiles/vim ~/.vim
 ln -s ~/.dotfiles/nvim ~/.config/nvim
@@ -53,6 +59,7 @@ ln -s ~/.dotfiles/tmux.conf ~/.tmux.conf
 ln -s ~/.dotfiles/zshrc ~/.zshrc
 ln -s ~/.dotfiles/alacritty.yml ~/.config/alacritty/alacritty.yml
 ln -s ~/.dotfiles/emacs/init.el ~/.emacs.d/init.el
+ln -s ~/.dotfiles/neomutt/ ~/.config/neomutt
 
 # Install fzf
 git clone --depth 1 https://github.com/junegunn/fzf.git ~/.fzf
