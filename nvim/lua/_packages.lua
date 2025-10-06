@@ -38,5 +38,6 @@ require('packer').startup(function()
     use 'nvim-tree/nvim-web-devicons'
 
     use 'pangloss/vim-javascript'
+    use 'norcalli/nvim-colorizer.lua'
         
 end)

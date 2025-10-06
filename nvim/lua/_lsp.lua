@@ -27,7 +27,7 @@ end
 -- this part is telling Neovim to use the lsp server
 local servers = { 'pyright' }
 for _, lsp in pairs(servers) do
-    require('lspconfig')[lsp].setup {
+    vim.lsp.config(lsp, {
         on_attach = on_attach,
         flags = {
           debounce_text_changes = 150,
@@ -39,7 +39,7 @@ for _, lsp in pairs(servers) do
                 }
             },
         },
-    }
+    })
 end
 
 -- this is for diagnositcs signs on the line number column
