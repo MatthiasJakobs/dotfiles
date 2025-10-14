@@ -5,6 +5,8 @@ set my_name = "Matthias Jakobs"
 set imap_check_subscribed
 set sort = threads
 set timeout = 60
+unset imap_passive
+set mail_check = 60
 
 unset confirmappend
 set quit

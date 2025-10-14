@@ -7,6 +7,7 @@ vim.keymap.set('n', '<Leader>dj', '<cmd>lua require"dap".step_over()<CR>')
 vim.keymap.set('n', '<Leader>dh', '<cmd>lua require"dap".step_into()<CR>')
 vim.keymap.set('n', '<Leader>dl', '<cmd>lua require"dap".step_out()<CR>')
 vim.keymap.set('n', '<Leader>dq', '<cmd>lua require"dap".disconnect()<CR>')
+vim.keymap.set('n', '<Leader>dt', '<cmd>lua require"dapui".toggle()<CR>')
 
 local dap = require('dap')
 
@@ -99,14 +100,14 @@ local dap, dapui = require("dap"), require("dapui")
 dap.listeners.after.event_initialized["dapui_config"] = function()
   dapui.open()
 end
-dap.listeners.before.event_terminated["dapui_config"] = function()
-  dapui.close()
-end
-dap.listeners.before.event_exited["dapui_config"] = function()
-  dapui.close()
-end
+-- dap.listeners.before.event_terminated["dapui_config"] = function()
+--   dapui.close()
+-- end
+-- dap.listeners.before.event_exited["dapui_config"] = function()
+--   dapui.close()
+-- end
 
 local configurations = require('dap').configurations.python
 for _, configuration in pairs(configurations) do
-    configuration.subProcess = false
+    configuration.subProcess = true
 end
