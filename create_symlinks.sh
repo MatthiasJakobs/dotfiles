@@ -57,7 +57,7 @@ ln -s ~/.dotfiles/vim ~/.vim
 ln -s ~/.dotfiles/nvim ~/.config/nvim
 ln -s ~/.dotfiles/tmux.conf ~/.tmux.conf
 ln -s ~/.dotfiles/zshrc ~/.zshrc
-ln -s ~/.dotfiles/alacritty.yml ~/.config/alacritty/alacritty.yml
+ln -s ~/.dotfiles/alacritty.toml ~/.config/alacritty/alacritty.toml
 ln -s ~/.dotfiles/emacs/init.el ~/.emacs.d/init.el
 ln -s ~/.dotfiles/neomutt/ ~/.config/neomutt
 

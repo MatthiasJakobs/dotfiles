@@ -25,8 +25,7 @@ vim.cmd [[
 
     syntax enable
     filetype plugin on
-    colorscheme dracula
-    set background=dark
+    colorscheme tokyonight
 
     set signcolumn=yes
     set clipboard+=unnamedplus
