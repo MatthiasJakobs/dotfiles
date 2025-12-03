@@ -21,7 +21,7 @@ unhdr_order *
 hdr_order from: to: cc: date: subject:
 
 # Index view options
-set date_format = "%d/%m"
+set date_format = "%d/%m/%y"
 set index_format = "[%Z]  %D  %-20.20F  %s"
 
 # Pager View Options
