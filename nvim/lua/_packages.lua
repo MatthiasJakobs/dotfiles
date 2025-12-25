@@ -39,5 +39,6 @@ require('packer').startup(function()
 
     use 'pangloss/vim-javascript'
     use 'norcalli/nvim-colorizer.lua'
+    use 'mason-org/mason.nvim'
         
 end)

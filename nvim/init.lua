@@ -39,4 +39,5 @@ require('_completion')
 require('_tex')
 require('_tree')
 require('_colorizer')
+require('_mason')
 
