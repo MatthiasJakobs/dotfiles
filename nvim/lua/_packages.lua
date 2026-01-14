@@ -14,7 +14,7 @@ require('packer').startup(function()
     use 'psliwka/termcolors.nvim'
     -- Telescope
     use {
-        'nvim-telescope/telescope.nvim', tag = '0.1.4',
+        'nvim-telescope/telescope.nvim', branch = 'master',
         requires = { {'nvim-lua/plenary.nvim'} }
     }
     use {
