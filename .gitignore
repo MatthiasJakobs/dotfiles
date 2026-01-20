@@ -13,3 +13,7 @@ neomutt/work.account
 .DS_Store
 *~
 nvim/plugin
+package.json
+package-lock.json
+lazy-lock.json
+.luarc.json

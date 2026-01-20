@@ -1,43 +1,30 @@
-require('_packages')
+local lazypath = vim.fn.stdpath 'data' .. '/lazy/lazy.nvim'
+if not (vim.uv or vim.loop).fs_stat(lazypath) then
+  local lazyrepo = 'https://github.com/folke/lazy.nvim.git'
+  local out = vim.fn.system { 'git', 'clone', '--filter=blob:none', '--branch=stable', lazyrepo, lazypath }
+  if vim.v.shell_error ~= 0 then
+    error('Error cloning lazy.nvim:\n' .. out)
+  end
+end
 
--- Legacy settings
-vim.cmd [[
-	set tabstop=4 softtabstop=4
-	set shiftwidth=4
-	set expandtab
-	set smartindent
-	set nohlsearch
-	set incsearch
-    set smartcase
-	set nowrap
-	set nu
-    set rnu
-	set hidden
-	set noerrorbells
-	set noswapfile
-	set nobackup
-	set undodir=~/.vim/undodir
-	set undofile
-	set termguicolors
-	set scrolloff=8
-	set guicursor=
-    set updatetime=100
+local rtp = vim.opt.rtp
+rtp:prepend(lazypath)
 
-    syntax enable
-    filetype plugin on
-    colorscheme tokyonight
+require('settings')
 
-    set signcolumn=yes
-    set clipboard+=unnamedplus
-]]
+require('lazy').setup({
+    spec='plugins',
+    change_detection = {
+        enabled = true,
+        notify = false,
+    }
+})
 
-require('_mappings')
-require('_lsp')
-require('_dap')
-require('_telescope')
-require('_completion')
-require('_tex')
-require('_tree')
-require('_colorizer')
-require('_mason')
+-- require('_mappings')
+-- require('_lsp')
+-- require('_dap')
+-- require('_completion')
+-- require('_tex')
+-- require('_colorizer')
+-- require('_mason')
 
