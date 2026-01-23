@@ -84,4 +84,4 @@ function precmd {
 
 setopt PROMPT_SUBST
 NEWLINE=$'\n'
-PROMPT='%F{blue}%~%f %F{magenta}${vcs_info_msg_0_}%f %F{yellow}$(venv_prompt)%f${NEWLINE}%F{green}❯%f '
+PROMPT='%F{red}%n$f %F{blue}%~%f %F{magenta}${vcs_info_msg_0_}%f %F{yellow}$(venv_prompt)%f${NEWLINE}%F{green}❯%f '
