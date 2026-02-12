@@ -4,6 +4,10 @@ vim.cmd [[
     set expandtab
     set termguicolors
 ]]
+--
+-- Remove leader key from visual and normal mode
+vim.keymap.set('n', '<Space>', '<Nop>')
+vim.keymap.set('v', '<Space>', '<Nop>')
 
 vim.g.mapleader = ' '
 vim.g.maplocalleader = ' '
@@ -45,3 +49,4 @@ vim.keymap.set('n', 'sv', ':vsplit<CR><C-w>w')
 -- Visual mode
 vim.keymap.set('v', '<', '<gv')
 vim.keymap.set('v', '>', '>gv')
+

@@ -7,14 +7,14 @@ zstyle ':completion:*' menu select
 zstyle ':completion:*' special-dirs true
 
 # main opts
-setopt auto_menu menu_complete
+setopt auto_menu #menu_complete
 setopt no_case_glob no_case_match
 setopt nocaseglob
 
+HISTFILE=~/.zsh_history
 HISTSIZE=10000000
 SAVEHIST=10000000
-HISTFILE="/tmp/zsh_history"
-HISTCONTROL=ignoreboth
+setopt appendhistory
 
 source <(fzf --zsh)
 
