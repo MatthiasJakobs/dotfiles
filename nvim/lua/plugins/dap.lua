@@ -23,7 +23,7 @@ return {
             }
             --
             -- Also, overwrite if vscode file available 
-            require('dap.ext.vscode').load_launchjs()
+            --require('dap.ext.vscode').load_launchjs()
 
             vim.keymap.set('n', '<Leader>db', '<cmd>lua require"dap".toggle_breakpoint()<CR>')
             vim.keymap.set('n', '<Leader>dc', '<cmd>lua require"dap".continue()<CR>')
