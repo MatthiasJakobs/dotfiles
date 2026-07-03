@@ -10,6 +10,7 @@ return {
         config = function()
             vim.keymap.set('n', '<Leader>ff', '<cmd>Telescope find_files<CR>')
             vim.keymap.set('n', '<Leader>fg', '<cmd>Telescope live_grep<CR>')
+            vim.keymap.set('n', '<Leader>fb', '<cmd>Telescope buffers<CR>')
 
             local telescope = require('telescope')
             local actions = require('telescope.actions')

@@ -11,7 +11,13 @@ return {
         -- set termguicolors to enable highlight groups
         vim.opt.termguicolors = true
 
-        local ntree = require('nvim-tree').setup({})
+        local config = {
+            filters = {
+                dotfiles = false,
+                git_ignored = false,
+            },
+        }
+        local ntree = require('nvim-tree').setup(config)
     end
 
 }

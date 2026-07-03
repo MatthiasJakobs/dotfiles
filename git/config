@@ -1,3 +1,7 @@
 [user]
 name = Matthias Jakobs
 email = m.jakobs265@gmail.com
+[core]
+	editor = nvim
+[init]
+	defaultBranch = master
