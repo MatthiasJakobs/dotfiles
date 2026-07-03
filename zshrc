@@ -1,87 +1,48 @@
-zmodload zsh/complist
-autoload -U compinit && compinit 
-autoload -U colors && colors
+# Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
+# Initialization code that may require console input (password prompts, [y/n]
+# confirmations, etc.) must go above this block; everything else may go below.
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+  source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
+fi
 
-# cmp opts
-zstyle ':completion:*' menu select
-zstyle ':completion:*' special-dirs true
+ZINIT_HOME="${XDG_DATA_HOME:-${HOME}/.local/share}/zinit/zinit.git"
+[ ! -d $ZINIT_HOME ] && mkdir -p "$(dirname $ZINIT_HOME)"
+[ ! -d $ZINIT_HOME/.git ] && git clone https://github.com/zdharma-continuum/zinit.git "$ZINIT_HOME"
+source "${ZINIT_HOME}/zinit.zsh"
 
-# main opts
-setopt auto_menu #menu_complete
-setopt no_case_glob no_case_match
-setopt nocaseglob
+# Install plugins
+zinit ice depth=1; zinit light romkatv/powerlevel10k
+zinit light zsh-users/zsh-syntax-highlighting
+zinit light zsh-users/zsh-completions
+zinit light zsh-users/zsh-autosuggestions
+zinit light Aloxaf/fzf-tab
 
+# Load completions
+autoload -U compinit && compinit
+
+# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
+[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+
+# History
+HISTSIZE=5000
 HISTFILE=~/.zsh_history
-HISTSIZE=10000000
-SAVEHIST=10000000
+SAVEHIST=$HISTSIZE
+HISTDUP=erase
 setopt appendhistory
+setopt sharehistory
+setopt hist_save_no_dups
+setopt hist_ignore_all_dups
+setopt hist_ignore_dups
+setopt hist_find_no_dups
 
-source <(fzf --zsh)
+# Completion styling
+zstyle ':completion:*' matcher-list 'm:{a-z}={A-Za-z}'
+zstyle ':completion:*' list-colors "${(s.:.)LS_COLORS}"
+zstyle ':completion:*' menu no
+zstyle ':fzf-tab:complete:cd:*' fzf-preview 'ls --color $realpath'
+zstyle ':fzf-tab:complete:__zoxide_z:*' fzf-preview 'ls --color $realpath'
 
-#### Aliases and other things ####
-if command -v eza >/dev/null 2>&1; then
-  alias ls='eza -l --icons --color=auto'
-  alias ll='eza -lah --icons --color=auto'
-else
-  alias ls='ls --color=auto'
-  alias ll='ls -lah --color=auto'
-fi
+alias ls='ls --color'
 
-
-#### Vim stuff ####
-bindkey -v
-
-#### Git ####
-autoload -Uz vcs_info
-zstyle ':vcs_info:git:*' formats ' %b'
-
-#### Python venvs ####
-export VIRTUAL_ENV_DISABLE_PROMPT=1
-function venv_prompt {
-  [[ -n $VIRTUAL_ENV ]] && echo " ${VIRTUAL_ENV:t}"
-}
-
-pyenvs(){
-    source ~/.pyenvs/$1/bin/activate
-}
-
-#pyenvs main
-
-#### SSH AGENT  ####
-# Pick a stable per-user runtime dir (systemd sets XDG_RUNTIME_DIR; otherwise fall back)
-: ${XDG_RUNTIME_DIR:="/tmp/${UID}-runtime"}
-mkdir -p "$XDG_RUNTIME_DIR"
-
-export SSH_AUTH_SOCK="$XDG_RUNTIME_DIR/ssh-agent.sock"
-
-# If no agent is listening on the socket, start one bound to that socket
-if ! ssh-add -l >/dev/null 2>&1; then
-  # kill stale socket file if present
-  [[ -S "$SSH_AUTH_SOCK" ]] || rm -f "$SSH_AUTH_SOCK"
-
-  # Start agent attached to our chosen socket; suppress output
-  eval "$(ssh-agent -a "$SSH_AUTH_SOCK" -s)" >/dev/null
-
-  if [[ -t 0 ]]; then
-    ssh-add
-  fi
-
-fi
-
-#### ZOXIDE ####
-if which zoxide >/dev/null 2>&1; then
-    eval "$(zoxide init zsh)"
-fi
-
-##### Load plugins ####
-source ~/.config/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-##### Prompt ####
-function precmd {
-  vcs_info
-  print -rP ''
-}
-
-setopt PROMPT_SUBST
-NEWLINE=$'\n'
-PROMPT='%F{red}%n$f %F{blue}%~%f %F{magenta}${vcs_info_msg_0_}%f %F{yellow}$(venv_prompt)%f${NEWLINE}%F{green}❯%f '
+# Shell integration 
+eval "$(fzf --zsh)"
