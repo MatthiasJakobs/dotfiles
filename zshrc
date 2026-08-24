@@ -14,6 +14,7 @@ source "${ZINIT_HOME}/zinit.zsh"
 zinit ice depth=1; zinit light romkatv/powerlevel10k
 zinit light zsh-users/zsh-syntax-highlighting
 zinit light zsh-users/zsh-completions
+ZSH_AUTOSUGGEST_HIGHLIGHT_STYLE='fg=#93a1a1'
 zinit light zsh-users/zsh-autosuggestions
 zinit light Aloxaf/fzf-tab
 
