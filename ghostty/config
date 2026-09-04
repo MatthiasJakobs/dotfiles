@@ -3,36 +3,36 @@ font-size = 14
 font-thicken = true
 adjust-cell-height = 10%
 
-# Solarized Light (official altercation/solarized palette)
-background = #fdf6e3
-foreground = #657b83
-cursor-color = #657b83
-cursor-text = #fdf6e3
-selection-background = #eee8d5
-selection-foreground = #586e75
-palette = 0=#073642
-palette = 1=#dc322f
-palette = 2=#859900
-palette = 3=#b58900
-palette = 4=#268bd2
-palette = 5=#d33682
-palette = 6=#2aa198
-palette = 7=#eee8d5
-palette = 8=#002b36
-palette = 9=#cb4b16
-palette = 10=#586e75
-palette = 11=#657b83
-palette = 12=#839496
-palette = 13=#6c71c4
-palette = 14=#93a1a1
-palette = 15=#fdf6e3
+# Github dark
+background = #010409
+foreground = #e6edf3
+selection-background = #264f78
+selection-foreground = #e6edf3
+cursor-color = #e6edf3
+cursor-text = #010409
+palette = 0=#484f58
+palette = 1=#ff7b72
+palette = 2=#3fb950
+palette = 3=#d29922
+palette = 4=#58a6ff
+palette = 5=#bc8cff
+palette = 6=#39c5cf
+palette = 7=#b1bac4
+palette = 8=#6e7681
+palette = 9=#ffa198
+palette = 10=#56d364
+palette = 11=#e3b341
+palette = 12=#79c0ff
+palette = 13=#d2a8ff
+palette = 14=#56d4dd
+palette = 15=#ffffff
 
 window-padding-x = 16
 window-padding-y = 4,12
-window-theme = light
+window-theme = dark
 
 # Minimum contrast
-minimum-contrast = 2
+#minimum-contrast = 2
 
 # Hide the titlebar for a cleaner look
 #macos-titlebar-style = hidden
