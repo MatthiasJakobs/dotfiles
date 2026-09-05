@@ -1,77 +1,13 @@
 return {
-  -- 'maxmx03/solarized.nvim',
-  -- lazy = false,
-  -- priority = 1000,
-  -- opts = {
-  --     variant = 'winter',
-  --     on_highlights = function(colors, _)
-  --         return {
-  --             LineNr = {
-  --                 fg = colors.base1,
-  --                 bg = colors.base3,
-  --             },
-  --             CursorLineNr = {
-  --                 fg = colors.base01,
-  --                 bg = colors.base3,
-  --             },
-  --             SignColumn = {
-  --                 bg = colors.base3,
-  --             },
-  --             FoldColumn = {
-  --                 fg = colors.base1,
-  --                 bg = colors.base3,
-  --             },
-  --             GitSignsAdd = {
-  --                 fg = colors.cyan,
-  --                 bg = colors.base3,
-  --             },
-  --             GitSignsChange = {
-  --                 fg = colors.git_modify,
-  --                 bg = colors.base3,
-  --             },
-  --             GitSignsDelete = {
-  --                 fg = colors.red,
-  --                 bg = colors.base3,
-  --             },
-  --             NvimTreeNormal = {
-  --                 bg = colors.base3,
-  --             },
-  --             NvimTreeNormalNC = {
-  --                 bg = colors.base3,
-  --             },
-  --             NvimTreeSignColumn = {
-  --                 bg = colors.base3,
-  --             },
-  --             NvimTreeEndOfBuffer = {
-  --                 bg = colors.base3,
-  --             },
-  --             DiagnosticSignError = {
-  --                 fg = colors.red,
-  --                 bg = colors.base3,
-  --             },
-  --             DiagnosticSignWarn = {
-  --                 fg = colors.yellow,
-  --                 bg = colors.base3,
-  --             },
-  --             DiagnosticSignInfo = {
-  --                 fg = colors.blue,
-  --                 bg = colors.base3,
-  --             },
-  --             DiagnosticSignHint = {
-  --                 fg = colors.cyan,
-  --                 bg = colors.base3,
-  --             },
-  --             DiagnosticSignOk = {
-  --                 fg = colors.green,
-  --                 bg = colors.base3,
-  --             },
-  --         }
-  --     end,
-  -- },
-  -- config = function(_, opts)
-  --   vim.o.termguicolors = true
-  --   vim.o.background = 'light'
-  --   require('solarized').setup(opts)
-  --   vim.cmd.colorscheme 'solarized'
-  -- end,
+  'projekt0n/github-nvim-theme',
+  name = 'github-theme',
+  lazy = false, -- make sure we load this during startup if it is your main colorscheme
+  priority = 1000, -- make sure to load this before all the other start plugins
+  config = function()
+    require('github-theme').setup({
+      -- ...
+    })
+
+    vim.cmd('colorscheme github_dark_default')
+  end,
 }
